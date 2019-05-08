@@ -128,8 +128,16 @@ class Database():
         return cursor.lastrowid
 
 if __name__ == "__main__":
-    db = Database("test.db")
+    db = Database("level_one.db")
 
+    conn = sqlite3.connect('level_one.db')
+    c = conn.cursor()
+
+    c.execute("SELECT * from skills")
+    result = c.fetchall()
+    for i in result:
+        print(i)
+    exit()
     comment_list = {
     "entry" : "multi",
     "level" : "level1",
