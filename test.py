@@ -6,7 +6,7 @@ assessment = {
     "student": 123, 
     "completed": "0",
     "skills" : {    
-        "fit": {
+        "fitness": {
             "distance_swim_5m" : {
                 "completed_distance" : "0",
                 "unassisted" : "0"
@@ -26,36 +26,12 @@ assessment = {
                 "completed_3_times" : "0"
             }
         },
-        "swim" : {
+        "swimming" : {
             "back_glide" : {
                 "completed_3_times" : "1",
                 "completed_duration" : "0",
                 "kick_from_hip" : "0",
                 "streamlined_position" : "0"
-            }
-        },
-        "optional" : {
-            "completed_options" : "1"
-        }
-    }
-}
-
-comments = {
-    "level" : "level1",
-    "date": 123,
-    "instructor": 123,
-    "classNumber": 123,
-    "student": 123, 
-    "completed": "0",
-    "skills" : {    
-        "fit": {
-            "distance_swim_5m" : {
-                "completed_distance" : [
-                ("0", "keep working on swimming a full 5 meters!"),
-                ("0", "remember to not touch the wall for distance swim!"),
-                ("1", "awesome job on your distance swim!"),
-                ("1", "great distance swimming!")
-                ]
             }
         }
     }
@@ -66,71 +42,82 @@ class Database():
     """docstring for database"""
     def __init__(self, db_name):
         self.db_name = db_name
-    def select_comments(self, level, skill, attribute, sentiment):
+        
+    def fetch_comments(self, level, standard, stroke, skill, sentiment):
         extraction = """
-            SELECT skill, attribute, sentiment, comment 
+            SELECT standard, stroke, skill, sentiment, comment, stamina, focus, confidence, head, body, legs, arms
             FROM skills INNER JOIN directory ON skills.id = directory.attr_id 
             INNER JOIN comments ON directory.comment_id = comments.id 
-            WHERE level = ? AND skill = ? AND attribute = ? AND sentiment = ? 
+            WHERE level = ? AND standard = ? AND stroke = ? AND skill = ? AND sentiment = ? 
             """ 
         with sqlite3.connect(self.db_name) as conn:
             c = conn.cursor()
-            c.execute(extraction,[level, skill, attribute, sentiment])
+            c.execute(extraction,[level, standard, stroke, skill, sentiment])
             return c.fetchall()
 
-    def fetch_comments(self, ticket):
-        comments = []
-        level = ticket["level"]
-        skill = None
-        def recursive_select(ticket):
-            global skill
-            for key, value in ticket.items(): 
-                if isinstance(value, dict):
-                    skill = key
-                    recursive_select(value)
-                else:
-                    comments.append(self.select_comments(level, skill, key, value))
-            return comments
-        return recursive_select(ticket["skills"])
-        
-    def fill_comments(self, ticket):
-            level = ticket["level"]
-            skill = None
-            def recursive_insert(ticket):
-                global skill
-                for key, value in ticket.items(): 
-                    if isinstance(value, dict):
-                        skill = key
-                        recursive_insert(value)
-                    else:
-                        self.insert_comments(level, skill, key, value)
-                return True
-            return recursive_insert(ticket["skills"])
+    def multi_fetch_comments(self, card):
+        comments = list()
+        level, skills = card["level"], card["skills"]
+        for standard in skills:
+            for stroke in skills[standard]:
+                for skill, sentiment in skills[standard][stroke].items():
+                    comments.append(self.fetch_comments(level, standard, stroke, skill, sentiment))
+        return comments
 
-    def insert_comments(self, level, skill, attribute, comments):
+
+    def multifill_skills(self, card):
+        level, standard, strokes = card['level'], card['standard'], card['strokes']
+        for stroke in strokes:
+            for skills in strokes[stroke]:
+                skill, attribute = skills['skill'], skills['attribute']
+                self.insert_skill(level, standard, stroke, skill, attribute)
+
+    def insert_skill(self, level, standard, stroke, skill, attributes):
+        stamina, focus, confidence, head, body, legs, arms = attributes
+        insertion = """
+            INSERT INTO skills(level, standard, stroke, skill, 
+            stamina, focus, confidence, head, body, legs, arms)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """
         with sqlite3.connect(self.db_name) as conn:
             c = conn.cursor()
-            value = self._get_skills_id(c, level, skill, attribute)
-            if value == None:
-                attr_id = self._insert_skill(c, level, skill, attribute)
+            if not self._get_skill(c, level, standard, stroke, skill):
+                c.execute(insertion, [level, standard, stroke, skill, stamina, focus, confidence, head, body, legs, arms])
             else:
-                attr_id = value[0]
-            for comment in comments:
-                sentiment = comment[0]
-                comment = comment[1]
-                comment_id = self._insert_comment(c, sentiment, comment)
-                self._insert_relationship(c, attr_id, comment_id)
+                raise RuntimeError("Skill already exists")
+            return c.lastrowid
+
+    def multifill_comments(self, card):
+        level, standard, strokes = card['level'], card['standard'], card['strokes']
+        for stroke in strokes:
+            for skill in strokes[stroke]:
+                for comments in strokes[stroke][skill]:
+                    comment, sentiment = comments["comment"], comments["sentiment"]
+                    self.insert_comment(level, standard, stroke, skill, comment, sentiment)
+
+
+    def insert_comment(self, level, standard, stroke, skill, comment, sentiment):
+        with sqlite3.connect(self.db_name) as conn:
+            c = conn.cursor()
+            value = self._get_skill(c, level, standard, stroke, skill)
+            if value:
+                skill_id = value['id']
+            else:
+                raise RuntimeError("Attribute of comment doesn't exist")
+            comment_id = self._insert_comment(c, sentiment, comment)
+            self._insert_relationship(c, skill_id, comment_id)
             conn.commit()
         return True
 
-    def _get_skills_id(self, cursor, level, skills, attribute):
-            cursor.execute("SELECT id FROM skills WHERE level = ? AND skill = ? AND attribute = ?", (level, skill, attribute))
+    def _get_skill(self, cursor, level, standard, stroke, skill):
+            cursor.execute("SELECT id, skill FROM skills WHERE level = ? AND standard = ? AND stroke = ? AND skill = ?", (level, standard, stroke, skill))
             value = cursor.fetchone()
-            return value
-
-    def _insert_skill(self, cursor, level, skill, attribute):
-        cursor.execute("INSERT INTO skills(level, skill, attribute) VALUES (?, ?, ?)", (level, skill, attribute))
-        return cursor.lastrowid
+            if value:
+                skill = dict()
+                skill['id'], skill['name'] = value[0], value[1]
+                return skill
+            else:
+                return False
 
     def _insert_comment(self, cursor, sentiment, comment):
         cursor.execute("INSERT INTO comments(sentiment, comment) VALUES (?, ?)", (sentiment, comment))
@@ -143,6 +130,52 @@ class Database():
 if __name__ == "__main__":
     db = Database("test.db")
 
-    db.fill_comments(comments)
-    comments = db.fetch_comments(assessment)
-    print(comments)
+    comment_list = {
+    "entry" : "multi",
+    "level" : "level1",
+    "standard" : "fitness",
+    "strokes" : {    
+        "distance_swim_5m" : {
+            "completed_distance" : [
+                {
+                "comment" : "keep working on swimming the full distance swim!",
+                "sentiment" : "negative",
+                },
+                {
+                "comment" : "Well done on your distance swim!",
+                "sentiment" : "positive",
+                }
+                ]
+            }
+        }   
+    }
+
+    assess_list = {
+    "entry" : "multi",
+    "level" : "level1",
+    "skills" : {
+        "fitness" : {
+            "distance_swim_5m" : {
+                "completed_distance" : "positive",
+                }
+            }
+        }   
+    }
+
+    skills_list = {
+        "level" : "level1",
+        "standard" : "fitness",
+        "strokes" : {
+            "distance_swim_5m" : [
+                {
+                    "skill" : "completed_distance",
+                    "attribute" : [1,1,0,0,0,0,0]
+                },
+                {
+                    "skill" : "arm_leg_combo",
+                    "attribute" : [0,1,0,0,0,1,1]
+                },
+            ]
+        }
+    }
+    print(db.multi_fetch_comments(assess_list))

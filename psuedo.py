@@ -33,7 +33,7 @@ assessment = {
     "student": "Demarkus", 
     "completed": "0",
     "skills" : {    
-        "fit": {
+        "fitness": {
             "flutter_kick_5m_assisted" : {
                 "completed_distance" : ,
                 "near_horizontal_body_position" : ,
@@ -72,7 +72,7 @@ assessment = {
                 "submerged_bubbles" : 
             }
         },
-        "swim" : {
+        "swimming" : {
             "rhythmic_breathing_5_times" : {
                 "completed_3_times" : , 
                 "exhale_mouth_nose" : ,

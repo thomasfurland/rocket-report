@@ -8,20 +8,19 @@ Have comments on separate lines with their descriptors.
 eg)
 {	"entry" : "multi",
 	"level" : "level1",
-    "skills" : {    
-        "fitness": {
-            "distance_swim_5m" : {
-                "completed_distance" : [
-                {
-                	"comment" : "keep working on swimming the full distance swim!",
-                	"sentiment" : "negative",
-				},
-				{
-	            	"comment" : "Well done on your distance swim!",
-	            	"sentiment" : "positive",
-				}
-                ]
-            }
+    "standard" : "fitness",
+    "strokes" : {    
+        "distance_swim_5m" : {
+            "completed_distance" : [
+            {
+            	"comment" : "keep working on swimming the full distance swim!",
+            	"sentiment" : "negative",
+			},
+			{
+            	"comment" : "Well done on your distance swim!",
+            	"sentiment" : "positive",
+			}
+            ]
         }
     }
 }
@@ -52,4 +51,3 @@ protect against repeat entries
 can handle multiple single entry or same level multi-entry.
 
 """
-
