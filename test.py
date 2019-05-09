@@ -128,29 +128,29 @@ class Database():
         return cursor.lastrowid
 
 if __name__ == "__main__":
-    db = Database("level_one.db")
+    db = Database("test.db")
 
-    conn = sqlite3.connect('level_one.db')
-    c = conn.cursor()
+    # conn = sqlite3.connect('test.db')
+    # c = conn.cursor()
 
-    c.execute("SELECT * from skills")
-    result = c.fetchall()
-    for i in result:
-        print(i)
-    exit()
+    # c.execute("SELECT * from skills")
+    # result = c.fetchall()
+    # for i in result:
+    #     print(i)
+    # exit()
     comment_list = {
     "entry" : "multi",
     "level" : "level1",
     "standard" : "fitness",
     "strokes" : {    
-        "distance_swim_5m" : {
+        "distance_swim_2m" : {
             "completed_distance" : [
                 {
-                "comment" : "keep working on swimming the full distance swim!",
+                "comment" : "make sure to swim the full distance!",
                 "sentiment" : "negative",
                 },
                 {
-                "comment" : "Well done on your distance swim!",
+                "comment" : "Well done meeting your distance swim requirement!",
                 "sentiment" : "positive",
                 }
                 ]
@@ -165,6 +165,9 @@ if __name__ == "__main__":
         "fitness" : {
             "distance_swim_5m" : {
                 "completed_distance" : "positive",
+                },
+            "distance_swim_2m" : {
+                "completed_distance" : "negative",
                 }
             }
         }   
@@ -174,7 +177,7 @@ if __name__ == "__main__":
         "level" : "level1",
         "standard" : "fitness",
         "strokes" : {
-            "distance_swim_5m" : [
+            "distance_swim_2m" : [
                 {
                     "skill" : "completed_distance",
                     "attribute" : [1,1,0,0,0,0,0]
@@ -186,4 +189,5 @@ if __name__ == "__main__":
             ]
         }
     }
+    db.multifill_comments(comment_list)
     print(db.multi_fetch_comments(assess_list))

@@ -65,8 +65,12 @@ class DatabaseConnect():
                 skill_id = value['id']
             else:
                 raise RuntimeError("Attribute of comment doesn't exist")
-            comment_id = self._insert_comment(c, sentiment, comment)
-            self._insert_relationship(c, skill_id, comment_id)
+            if not self._comment_exists(c, level, standard, stroke, skill, comment, sentiment):
+                comment_id = self._insert_comment(c, sentiment, comment)
+                self._insert_relationship(c, skill_id, comment_id)
+            else:
+                print(comment)
+                raise RuntimeError("Comment already exists")
             conn.commit()
         return True
 
@@ -79,14 +83,64 @@ class DatabaseConnect():
                 return skill
             else:
                 return False
-
+    def _comment_exists(self, cursor, level, standard, stroke, skill, comment, sentiment):
+        extraction = """
+            SELECT comment_id
+            FROM skills INNER JOIN directory ON skills.id = directory.attr_id 
+            INNER JOIN comments ON directory.comment_id = comments.id 
+            WHERE level = ? AND standard = ? AND stroke = ? 
+            AND skill = ? AND sentiment = ? AND comment = ?
+            """ 
+        cursor.execute(extraction,[level, standard, stroke, skill, sentiment, comment])
+        comment_id = cursor.fetchone()
+        if comment_id:
+            return comment_id
+        else:
+            return False
     def _insert_comment(self, cursor, sentiment, comment):
         cursor.execute("INSERT INTO comments(sentiment, comment) VALUES (?, ?)", (sentiment, comment))
         return cursor.lastrowid
-
     def _insert_relationship(self, cursor, attr_id, comment_id):
         cursor.execute("INSERT INTO directory(attr_id, comment_id) VALUES (?, ?)", (attr_id, comment_id))
         return cursor.lastrowid
 
 if __name__ == '__main__':
-    pass
+    db = DatabaseConnect("test.db")
+
+    comment_list = {
+    "entry" : "multi",
+    "level" : "level1",
+    "standard" : "fitness",
+    "strokes" : {    
+        "distance_swim_2m" : {
+            "completed_distance" : [
+                {
+                "comment" : "make sure to swim the full distance!",
+                "sentiment" : "negative",
+                },
+                {
+                "comment" : "Well done meeting your distance swim requirement!",
+                "sentiment" : "positive",
+                }
+                ]
+            }
+        }   
+    }
+
+    assess_list = {
+    "entry" : "multi",
+    "level" : "level1",
+    "skills" : {
+        "fitness" : {
+            "distance_swim_5m" : {
+                "completed_distance" : "positive",
+                },
+            "distance_swim_2m" : {
+                "completed_distance" : "negative",
+                }
+            }
+        }   
+    }
+
+    db.multifill_comments(comment_list)
+    print(db.multi_fetch_comments(assess_list))
