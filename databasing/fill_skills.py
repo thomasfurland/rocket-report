@@ -246,7 +246,7 @@ swimming_list = {
         }
     }
 
-db = DatabaseConnect("level_one.db")
+db = DatabaseConnect("test.db")
 db.multifill_skills(fitness_list)
 db.multifill_skills(safety_list)
 db.multifill_skills(swimming_list)

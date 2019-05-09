@@ -1,18 +1,322 @@
-{   "entry" : "multi",
-    "level" : "level1",
-    "standard" : "fitness",
-    "strokes" : {    
+[{   
+"entry" : "multi",
+"level" : "level1",
+"standard" : "fitness",
+"strokes" : {    
+    "flutter_kick_5m_assisted" : {
+        "horizontal_body_position" : [
+            {
+                "comment" : "try to keep your body flat and straight for flutter kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "good work flutter kicking with a straight and flat body",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you managed to keep your body straight and flat for flutter kick",
+                "sentiment" : "neutral"
+            }
+            ],
+            "front_or_back_kick" : [
+            {
+                "comment" : "keep working at kicking on your front and back for flutter kicking 5 meters",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done with your flutterkicks",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you're able to kick on your front and back for flutter kick",
+                "sentiment" : "neutral"
+            }
+            ],
+            "kick_from_hip" : [
+            {
+                "comment" : "remember to kick from your hips during your flutter kick",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job kicking from your hips during your flutter kick",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up kicking from the hips during your flutter kick",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_leg_motion" : [
+            {
+                "comment" : "make sure to kick your legs up and down for flutter kick",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job kicking up and down for flutter kick",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up kicking up and down for flutter kick",
+                "sentiment" : "neutral"
+            }
+            ],
+            "completed_distance" : [
+            {
+                "comment" : "keep working on swimming a full 5 meters for flutter kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great stuff flutter kicking for 5 meters",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you swam a full 5 meters of flutter kick",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
         "distance_swim_5m" : {
+            "front_or_back_swim" : [
+            {
+                "comment" : "remember to do a front or back swim for your distance swim",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done front and back swimming for distance swim",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you swam using front swim and back swim during your distance swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "arm_leg_movement" : [
+            {
+                "comment" : "remember to keep your arms and legs moving for your distance swim",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome work moving your arms and legs during your distance swim",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep moving your arms and legs during distance swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "body_position_w_flutter_kick" : [
+            {
+                "comment" : "try keeping your body straight more and legs kicking small and fast during distance swim",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great kicking and body position during your distance swim",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up the straight body and straight leg kicks for distance swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "horizontal_body_position" : [
+            {
+                "comment" : "keep your body horizontal for front and back kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done keeping your body straight and flat for distance swim!",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you managed to keep your body straight and flat for distance swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "exhale_underwater" : [
+            {
+                "comment" : "remember to blow your bubbles and breathe during your distance swim",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome bubbles during distance swim",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up blowing bubbles on your distance swims",
+                "sentiment" : "neutral"
+            }
+            ],
             "completed_distance" : [
             {
                 "comment" : "keep working on swimming the full distance swim!",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "Well done on your distance swim!",
+                "comment" : "well done on your distance swim",
                 "sentiment" : "positive"
+            },
+            {
+                "comment" : "you completed the distance swim",
+                "sentiment" : "neutral"
             }
             ]
         }
     }
-}
+},
+{   
+"entry" : "multi",
+"level" : "level1",
+"standard" : "safety",
+"strokes" : {    
+    "facility_site_orientation" : {
+        "identifies_safety_and_hazards" : [
+            {
+                "comment" : "make sure to listen to safety hazard talks to know how to be safe in a pool",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work listening and identifying safety hazards around the pool",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you learned how to identify safety hazards at the pool",
+                "sentiment" : "neutral"
+            }
+            ],
+            "waits_for_instructor" : [
+            {
+                "comment" : "remember to wait for the instructors permission to get into the water",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done waiting for your instructors permission before getting in the water",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep asking for permission before getting into the pool",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "supervision" : {
+            "explains_supervision" : [
+            {
+                "comment" : "remember to listen during safety talks to understand things like adult supervision",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work demonstrating safe swimming by staying near the instructor",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you listened and learned about adult supervision",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "shallow_entries_exits" : {
+            "waits_for_instructor" : [
+            {
+                "comment" : "make sure that you wait for your instructor to get in the water before you",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job waiting for the instructor to get into the water before you get in",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up the habit of waiting for an adult to be in the water before you",
+                "sentiment" : "neutral"
+            }
+            ],
+            "performs_safe_entries_exits" : [
+            {
+                "comment" : "remember to enter the water safetly at the start, during and end of class",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work entering and exiting the water safetly",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up being safe entering and exiting the pool",
+                "sentiment" : "neutral"
+            }
+            ],
+            "performs_safe_exits" : [
+            {
+                "comment" : "make sure to to exit the pool in a safe way",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great showing of how to leave the pool safetly",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep up the safe pool exits",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "submerge_head" : {
+            "head_underwater_3sec" : [
+            {
+                "comment" : "have more confidence and put your head underwater for a full 3 seconds",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work submerging your head for 3 seconds",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you managed to stay underwater for over 3 seconds",
+                "sentiment" : "neutral"
+            }
+            ],
+            "eyes_open_underwater" : [
+            {
+                "comment" : "keep trying to open your eyes underwater",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job keeping your eyes open underwater",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can open your eyes underwater",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "exhale_through_mouth_nose" : {
+            "exhale_below_surface" : [
+            {
+                "comment" : "remember to blow bubbles underwater",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great bubbles underwater",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can blow your bubbles through your mouth and nose",
+                "sentiment" : "neutral"
+            }
+            ],
+            "exhale_w_head_underwater" : [
+            {
+                "comment" : "keep trying to put your whole head underwater when blowing bubbles too",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome big bubbles from your mouth and nose",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you practiced bubbles with your whole head underwater",
+                "sentiment" : "neutral"
+            }
+            ]
+        }
+    }
+}]
