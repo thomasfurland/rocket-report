@@ -130,14 +130,14 @@ class Database():
 if __name__ == "__main__":
     db = Database("test.db")
 
-    # conn = sqlite3.connect('test.db')
-    # c = conn.cursor()
+    conn = sqlite3.connect('test.db')
+    c = conn.cursor()
 
-    # c.execute("SELECT * from skills")
-    # result = c.fetchall()
-    # for i in result:
-    #     print(i)
-    # exit()
+    c.execute("SELECT * from skills")
+    result = c.fetchall()
+    for i in result:
+        print(i)
+    exit()
     comment_list = {
     "entry" : "multi",
     "level" : "level1",
