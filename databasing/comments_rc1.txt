@@ -245,7 +245,7 @@
             ],
             "performs_safe_exits" : [
             {
-                "comment" : "make sure to to exit the pool in a safe way",
+                "comment" : "make sure to exit the pool in a safe way",
                 "sentiment" : "negative"
             },
             {
@@ -314,6 +314,407 @@
             },
             {
                 "comment" : "you practiced bubbles with your whole head underwater",
+                "sentiment" : "neutral"
+            }
+            ]
+        }
+    }
+},
+{   
+"entry" : "multi",
+"level" : "level1",
+"standard" : "swimming",
+"strokes" : {    
+    "rhythmic_breathing_5_times" : {
+        "exhale_underwater_inhale_air" : [
+            {
+                "comment" : "remember to blow bubbles underwater when doing bobs",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work blowing bubbles and breathing in a pattern",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can inhale and exhale with a rythm while swimming",
+                "sentiment" : "neutral"
+            }
+            ],
+            "rhythmic_relaxed" : [
+            {
+                "comment" : "try to breathe in a pattern and stay relaxed",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "good job breathing in a pattern and staying relaxed",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keep breathing in a pattern and keep relaxed while breathing",
+                "sentiment" : "neutral"
+            }
+            ],
+            "5_repetitions" : [
+            {
+                "comment" : "remember to practice doing all 5 of your bobs",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work doing all of your bobs",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you completed all 5 bobs",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "front_float_recovery_3sec" : {
+            "stable_face_in_water" : [
+            {
+                "comment" : "remember to keep your body stretched with your face in the water for front floats",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job stretching your body and having your face in the water for front floats",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you stretched out your body and had your face underwater for front floats",
+                "sentiment" : "neutral"
+            }
+            ],
+            "float_3sec_relaxed" : [
+            {
+                "comment" : "try to relax more during your front float and hold it for a full 3 seconds",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome work holding a relaxed front float for 3 seconds",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you held a relaxed front float for 3 seconds",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_recovery" : [
+            {
+                "comment" : "remember to get your feet to the ground and stand up after you finish your front float",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done standing up by yourself after your front float",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you stood up all by yourself after front float",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "front_glide_5sec" : {
+            "glide_5sec_relaxed" : [
+            {
+                "comment" : "keep trying to hold your front glide for a full 5 seconds, it helps to stay relaxed",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome front glide for 5 seconds",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you front glided for a full 5 seconds",
+                "sentiment" : "neutral"
+            }
+            ],
+            "streamlined_body_position" : [
+            {
+                "comment" : "keep your body straight with arms in front of your head for front glide",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome rocket ship position for your front glide",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "arms straight in front of head and legs straight help you go fast for front glide",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_recovery" : [
+            {
+                "comment" : "make sure to stand up by yourself after your front glide",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job standing up after your front glide",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can stand up by yourself after front glide",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "front_glide_kick_5m" : {
+            "vertical_leg_motion" : [
+            {
+                "comment" : "make sure to kick your legs up and down for front glide kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great kicking during your front glide kicks",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "small and fast kicks will help to keep your front glide kicks smooth and speedy",
+                "sentiment" : "neutral"
+            }
+            ],
+            "kicks_5m_horizontal_body" : [
+            {
+                "comment" : "keep working on trying to kick the full 5 meters for front glide kick",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome work completing your front glide kicks for 5 meters",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you kicked on your front glide for 5 meters",
+                "sentiment" : "neutral"
+            }
+            ],
+            "streamlined_body_position" : [
+            {
+                "comment" : "remember to keep your chin down and body straight for front glide kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great rocketship positioning for front glide with kick",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keeping a nice streamlined body for front glide kicks will help you move easier through the water",
+                "sentiment" : "neutral"
+            }
+            ],
+            "exhale_underwater" : [
+            {
+                "comment" : "don't forget to blow bubbles during your rocketship kicks",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job blowing bubbles during your rocketship kicks",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "blowing bubbles underwater helps you find a rhythm for your front glide kick",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "back_float_recovery_3sec" : {
+            "stable_back_float" : [
+            {
+                "comment" : "remember to keep your head back and tummy up for your back float",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job keeping your tummy up and head back for back float",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "floating on your back is a great way to save energy in the water",
+                "sentiment" : "neutral"
+            }
+            ],
+            "float_3sec_relaxed" : [
+            {
+                "comment" : "make sure to stay relaxed on your back glide so you can float for 3 seconds",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "way to stay relaxed on your back float for 3 seconds",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "the more relaxed you are for back float the higher you will float",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_recovery" : [
+            {
+                "comment" : "let your legs fall down and lift your head from your back float when you're ready to stand up",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job standing back up from your back float",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can stand back up by yourself after back float",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "back_glide_5sec" : {
+            "glide_5sec_relaxed" : [
+            {
+                "comment" : "stay relaxed on your back so you can back glide for a full 5 seconds",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job back gliding for a full 5 seconds",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "back glide is a great way to breathe while you swim to where you want to go",
+                "sentiment" : "neutral"
+            }
+            ],
+            "streamlined_body_position" : [
+            {
+                "comment" : "remember to have your arms at your sides with a flat belly for back glide",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job having a flat tummy and keeping your arms at your sides for back glide",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keeping your chin down slightly will help improve your back glide",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_recovery" : [
+            {
+                "comment" : "remember to stand up on your own from back glide by letting your legs touch the ground",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job standing back up after your back glide",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can stand up on your own from a back glide",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "rollover_glide_5sec_assisted" : {
+            "rolls_front_to_back" : [
+            {
+                "comment" : "keep practicing how to roll from your front to back",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome rollovers from front to back",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "rolling over from front to back is a great way to breathe while you keep swimming",
+                "sentiment" : "neutral"
+            }
+            ],
+            "exhale_underwater_inhale_air" : [
+            {
+                "comment" : "keep trying to blow bubbles too while doing face down during rollover glides",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "well done blowing bubbles while face down during rollover glides",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you're making sure to blow bubbles during your rollover glides",
+                "sentiment" : "neutral"
+            }
+            ],
+            "rolls_back_to_front" : [
+            {
+                "comment" : "keep on trying to roll from back to front",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome work rolling from back to front during rollover glides",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "rolling from back to front is a great way to build back up speed while you swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "streamlined_body_position" : [
+            {
+                "comment" : "remember to keep your arms in front of your head during front glide and arms at your side for back glide",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great job with rocket ship arms for front glide and arms at your side for back glide during rollover glides",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "being able to roll while keeping your body straight and flat helps to keep speed up during rollovers",
+                "sentiment" : "neutral"
+            }
+            ],
+            "starts_roll_head_shoulders" : [
+            {
+                "comment" : "remember to start your rollover with your head first, shoulders second and then the rest of your body",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome job rolling over with your head and shoulders first",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "smooth rollovers can help to keep water out of your face during your back glide after your rollover",
+                "sentiment" : "neutral"
+            }
+            ],
+            "vertical_recovery" : [
+            {
+                "comment" : "keep trying to standup on your own after your finish your rollover glides",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work being able to stand up after your rollover glides",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you can recover and stand up after a rollover glide",
+                "sentiment" : "neutral"
+            }
+            ]
+        },
+        "front_swim_5m" : {
+            "arm_leg_movement" : [
+            {
+                "comment" : "keep trying to kick your legs up and down and move your arms in big circles to improve your front swim",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "awesome arm circles and up and down kicks for your front swim",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "keeping your hands closed and toes pointed can help you move faster for front swim",
+                "sentiment" : "neutral"
+            }
+            ],
+            "completed_distance" : [
+            {
+                "comment" : "keep on working at front swimming the full 5 meters",
+                "sentiment" : "negative"
+            },
+            {
+                "comment" : "great work front swimming the full 5 meters",
+                "sentiment" : "positive"
+            },
+            {
+                "comment" : "you did front swim for 5 meters",
                 "sentiment" : "neutral"
             }
             ]
