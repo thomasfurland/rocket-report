@@ -134,13 +134,12 @@ if __name__ == '__main__':
         "fitness" : {
             "distance_swim_5m" : {
                 "completed_distance" : "positive",
+                "front_or_back_swim" : "negative"
                 },
-            "distance_swim_2m" : {
+            "flutter_kick_5m_assisted" : {
                 "completed_distance" : "negative",
                 }
             }
         }   
     }
-
-    db.multifill_comments(comment_list)
     print(db.multi_fetch_comments(assess_list))
