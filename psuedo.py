@@ -88,23 +88,23 @@ assessment = {
                 "streamlined_body_position" : ,
                 "vertical_recovery" : 
             },
-            "front_glide_Kick_5m" : {
+            "front_glide_kick_5m" : {
                 "vertical_leg_motion" : , 
                 "kicks_5m_horizontal_body" : ,
                 "streamlined_body_position" : ,
                 "exhale_underwater" : 
             },
-            "back_float_recovery_3_seconds" : {
+            "back_float_recovery_3sec" : {
                 "stable_back_float" : , 
                 "float_3sec_relaxed" : ,
                 "vertical_recovery" : 
             },
-            "back_glide_5_seconds" : {
+            "back_glide_5sec" : {
                 "glide_5sec_relaxed" : , 
                 "streamlined_body_position" : ,
                 "vertical_recovery" : 
             },
-            "rollover_glide_5_seconds_assisted" : {
+            "rollover_glide_5sec_assisted" : {
                 "rolls_front_to_back" : , 
                 "exhale_underwater_inhale_air" : ,
                 "rolls_back_to_front" : ,

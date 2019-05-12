@@ -3,10 +3,10 @@ import random
 
 class ReportCard:
     def __init__(self, assessment, database):
+        self.db = DatabaseConnect(database)
         self.level = assessment['level']
         self.completed = int(assessment['completed'])
         self.report = assessment
-        self.db = DatabaseConnect(database)
         self.comments = None 
 
     def build(self):
@@ -46,7 +46,7 @@ class ReportCard:
             if report_card[i][1] == report_card[i+1][1] and report_card[i][3] == report_card[i+1][3]:
                 i+=1
                 report_card.insert(i, "and")
-            i += 1
+            i+=1
 
         report_card = [com[4] if isinstance(com, tuple) else com for com in report_card]
         report_card.insert(0, f"Good effort {self.report['student']}!")
