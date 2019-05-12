@@ -21,24 +21,24 @@ class ReportCard:
     def _positive_template(self, comments):
         report_card = list()
         report_card.append(f"Great work {self.report['student']}!")
-        positive = self._randomize_comment(comments['positive'], 4)
+        positive = self._random_comment(comments['positive'], cycles=4)
         report_card.append(positive)
-        negative = self._randomize_comment(comments['negative'], 2)
+        negative = self._random_comment(comments['negative'], 2)
         report_card.append(negative)
-        neutral = self._randomize_comment(comments['neutral'], 1)
+        neutral = self._random_comment(comments['neutral'], 1)
         report_card.append(neutral)
         report_card.append(f"Keep up the excellent effort and good luck in level {int(self.level[-1])+1}")
         return report_card
 
     def _negative_template(self, comments):
         report_card = list()
-        positive = self._randomize_comment(comments['positive'], 1, omit='swimming')
+        positive = self._random_comment(comments['positive'], cycles=1, omit='swimming')
         report_card.extend(positive)
-        negative = self._randomize_comment(comments['negative'], 4)
+        negative = self._random_comment(comments['negative'], 4)
         report_card.extend(negative)
-        neutral = self._randomize_comment(comments['neutral'], 1)
+        neutral = self._random_comment(comments['neutral'], 1)
         report_card.extend(neutral)
-        positive = self._randomize_comment(comments['positive'], 2, omit=['safety','fitness'])
+        positive = self._random_comment(comments['positive'], 2, omit=['safety','fitness'])
         report_card.extend(positive)
 
         i = 0
@@ -53,7 +53,7 @@ class ReportCard:
         report_card.append("Keep working hard to improve your swimming")
         return report_card
 
-    def _randomize_comment(self, comments, cycles, omit=None):
+    def _random_comment(self, comments, cycles, omit=None):
         comment = list()
         if omit:
             if isinstance(omit, str):
