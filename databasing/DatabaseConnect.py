@@ -11,6 +11,9 @@ class DatabaseConnect():
         for standard in skills:
             for stroke in skills[standard]:
                 for skill, sentiment in skills[standard][stroke].items():
+                    if sentiment == '1':
+                        neutral = '2'
+                        comments.append(self.fetch_comments(level, standard, stroke, skill, neutral))
                     comments.append(self.fetch_comments(level, standard, stroke, skill, sentiment))
         return comments
 
@@ -26,7 +29,7 @@ class DatabaseConnect():
         elif sentiment == '0':
             sentiment = 'negative'
         elif sentiment == '2':
-            sentiment == 'neutral'
+            sentiment = 'neutral'
         with sqlite3.connect(self.db_name) as conn:
             c = conn.cursor()
             c.execute(extraction,[level, standard, stroke, skill, sentiment])

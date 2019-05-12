@@ -606,11 +606,11 @@
         "rollover_glide_5sec_assisted" : {
             "rolls_front_to_back" : [
             {
-                "comment" : "keep practicing how to roll from your front to back",
+                "comment" : "keep practicing how to roll from your front to back for rollover glide",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome rollovers from front to back",
+                "comment" : "awesome rollovers from front to back during rollover glide",
                 "sentiment" : "positive"
             },
             {
@@ -634,11 +634,11 @@
             ],
             "rolls_back_to_front" : [
             {
-                "comment" : "keep on trying to roll from back to front",
+                "comment" : "keep on trying to roll from back to front on your rollover glide",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome work rolling from back to front during rollover glides",
+                "comment" : "awesome work rolling from back to front during rollover glide",
                 "sentiment" : "positive"
             },
             {

@@ -22,33 +22,45 @@ class ReportCard:
     def _positive_template(self, comments):
         report_card = list()
         report_card.append(f"Great work {self.report['student']}!")
-        for i in range(4):
-            comment, comments[0] = self._randomize_comment(comments[0])
-            report_card.append(comment)
-        for i in range(2):
-            comment, comments[1] = self._randomize_comment(comments[1])
-            report_card.append(comment)
+        positive = self._randomize_comment(comments[0], 4)
+        report_card.append(positive)
+        negative = self._randomize_comment(comments[1], 2)
+        report_card.append(negative)
+        neutral = self._randomize_comment(comments[2], 1)
+        report_card.append(neutral)
         report_card.append(f"Keep up the excellent effort and good luck in level {int(self.level[-1])+1}")
         return report_card
 
     def _negative_template(self, comments):
         report_card = list()
-        report_card.append(f"Great effort {self.report['student']}!")
-        for i in range(4):
-            comment, comments[1] = self._randomize_comment(comments[1])
-            report_card.append(comment)
-        for i in range(2):
-            comment, comments[0] = self._randomize_comment(comments[0])
-            report_card.append(comment)
-        report_card.append(f"Keep working hard to improve your swimming")
+        negative = self._randomize_comment(comments[1], 4)
+        report_card.extend(negative)
+        neutral = self._randomize_comment(comments[2], 1)
+        report_card.extend(neutral)
+        positive = self._randomize_comment(comments[0], 2)
+        report_card.extend(positive)
+        
+        report_card.insert(0, report_card.pop())
+        i = 0
+        while i < len(report_card)-1:
+            if report_card[i][1] == report_card[i+1][1]:
+                i+=1
+                report_card.insert(i, "and")
+            i += 1
+
+        report_card = [com[4] if isinstance(com, tuple) else com for com in report_card]
+        report_card.insert(0, f"Good effort {self.report['student']}!")
+        report_card.append("Keep working hard to improve your swimming")
         return report_card
 
-    def _randomize_comment(self, comments):
-        comment = str()
-        if comments:
-            random.shuffle(comments)
-            comment = comments.pop()[4]
-        return comment, comments
+    def _randomize_comment(self, comments, cycles):
+        comment = list()
+        for i in range(cycles):
+            if comments:
+                random.shuffle(comments)
+                comment.append(comments.pop())
+        comment.sort(key= lambda x: x[1])
+        return comment
 
     def _comments_by_sentiment(self, comments):
         pos, neg, neut = list(), list(), list()
@@ -75,7 +87,7 @@ if __name__ == '__main__':
     "instructor": "Thomas",
     "classNumber": "4485362",
     "student": "Demarkus", 
-    "completed": "1",
+    "completed": "0",
     "skills" : {    
         "fitness": {
             "flutter_kick_5m_assisted" : {
@@ -149,15 +161,15 @@ if __name__ == '__main__':
                 "vertical_recovery" : '1'
             },
             "rollover_glide_5sec_assisted" : {
-                "rolls_front_to_back" : '1', 
+                "rolls_front_to_back" : '0', 
                 "exhale_underwater_inhale_air" : '1',
-                "rolls_back_to_front" : '1' ,
+                "rolls_back_to_front" : '0' ,
                 "streamlined_body_position" : '1',
-                "starts_roll_head_shoulders" : '1',
+                "starts_roll_head_shoulders" : '0',
                 "vertical_recovery" : '1'
             },
             "front_swim_5m" : {
-                "arm_leg_movement" : '1', 
+                "arm_leg_movement" : '0', 
                 "completed_distance" : '0' 
             }
         }
