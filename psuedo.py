@@ -35,99 +35,87 @@ assessment = {
     "skills" : {    
         "fitness": {
             "flutter_kick_5m_assisted" : {
-                "completed_distance" : ,
-                "near_horizontal_body_position" : ,
-                "kicking" : ,
+                "horizontal_body_position" : ,
+                "front_or_back_kick" : ,
                 "kick_from_hip" : ,
-                "legs_moving_up_down" : , 
+                "vertical_leg_motion" : ,
+                "completed_distance" : , 
             },
             "distance_swim_5m" : {
-                "chooses_front_back" : ,
+                "front_or_back_swim" : ,
                 "arm_leg_movement" : ,
-                "body_position_flutter_kick" : ,
-                "near_horizontal_body_position" : ,
-                "exhales_underwater" : ,
+                "body_position_w_flutter_kick" : ,
+                "horizontal_body_position" : ,
+                "exhale_underwater" : ,
                 "completed_distance" : 
             }
         }, 
         "safety": {
             "facility_site_orientation" : {
-                "listened_attentively" : ,
+                "identifies_safety_and_hazards" : ,
                 "waits_for_instructor" : 
             },
             "supervision" : {
-                "understands_adult_supervision" : 
+                "explains_supervision" : 
             },
             "shallow_entries_exits" : {
                 "waits_for_instructor" : ,
-                "enters_exits_shallow_water" : ,
-                "safe_exits" :
+                "performs_safe_entries_exits" : ,
+                "performs_safe_exits" :
             },
             "submerge_head" : {
-                "submerged_3_seconds" : ,
+                "head_underwater_3sec" : ,
                 "eyes_open_underwater" : 
             },
-            "exhale_mouth_nose" : {
-                "blows_bubbles" : ,
-                "submerged_bubbles" : 
+            "exhale_through_mouth_nose" : {
+                "exhale_below_surface" : ,
+                "exhale_w_head_underwater" : 
             }
         },
         "swimming" : {
             "rhythmic_breathing_5_times" : {
-                "completed_3_times" : , 
-                "exhale_mouth_nose" : ,
-                "rhythmic_breathing" : ,
-                "completed_5_reps" : 
+                "exhale_underwater_inhale_air" : , 
+                "rhythmic_relaxed" : ,
+                "5_repetitions" : 
             },
-            "front_float_recovery_3_seconds" : {
-                "completed_3_times" : , 
-                "face_in_water" : ,
-                "relaxed_front_float_3_seconds" : ,
-                "unassisted_recovery" : 
+            "front_float_recovery_3sec" : {
+                "stable_face_in_water" : , 
+                "float_3sec_relaxed" : ,
+                "vertical_recovery" : 
             },
-            "front_glide_5_seconds" : {
-                "completed_3_times" : , 
-                "completed_duration" : ,
-                "streamlined_position" : ,
-                "unassisted_recovery" : 
+            "front_glide_5sec" : {
+                "glide_5sec_relaxed" : , 
+                "streamlined_body_position" : ,
+                "vertical_recovery" : 
             },
             "front_glide_Kick_5m" : {
-                "completed_3_times" : , 
-                "front_kick_up_down" : ,
-                "completed_distance" : ,
-                "streamlined_position" : ,
-                "exhales_underwater" :
+                "vertical_leg_motion" : , 
+                "kicks_5m_horizontal_body" : ,
+                "streamlined_body_position" : ,
+                "exhale_underwater" : 
             },
             "back_float_recovery_3_seconds" : {
-                "completed_3_times" : , 
-                "ears_in_water" : ,
-                "completed_duration" : ,
-                "unassisted_recovery" : 
+                "stable_back_float" : , 
+                "float_3sec_relaxed" : ,
+                "vertical_recovery" : 
             },
             "back_glide_5_seconds" : {
-                "completed_3_times" : , 
-                "completed_duration" : ,
-                "streamlined_position" : ,
-                "unassisted_recovery" : ,
+                "glide_5sec_relaxed" : , 
+                "streamlined_body_position" : ,
+                "vertical_recovery" : 
             },
             "rollover_glide_5_seconds_assisted" : {
-                "completed_3_times" : , 
-                "completed_duration" : ,
-                "front_glide_back_glide" : ,
-                "exhales_underwater" : ,
-                "back_glide_front_glide" : ,
-                "streamlined_position" : ,
-                "head_shoulder_roll" : ,
-                "unassisted_recovery" : ,
+                "rolls_front_to_back" : , 
+                "exhale_underwater_inhale_air" : ,
+                "rolls_back_to_front" : ,
+                "streamlined_body_position" : ,
+                "starts_roll_head_shoulders" : ,
+                "vertical_recovery" : 
             },
             "front_swim_5m" : {
-                "completed_3_times" : , 
-                "completed_distance" : ,
-                "arm_leg_movement" : 
-            },
-        },
-        "optional" : {
-
+                "arm_leg_movement" : , 
+                "completed_distance" :  
+            }
         }
     }
 }

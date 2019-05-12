@@ -21,6 +21,12 @@ class DatabaseConnect():
             INNER JOIN comments ON directory.comment_id = comments.id 
             WHERE level = ? AND standard = ? AND stroke = ? AND skill = ? AND sentiment = ? 
             """ 
+        if sentiment =='1':
+            sentiment = 'positive'
+        elif sentiment == '0':
+            sentiment = 'negative'
+        elif sentiment == '2':
+            sentiment == 'neutral'
         with sqlite3.connect(self.db_name) as conn:
             c = conn.cursor()
             c.execute(extraction,[level, standard, stroke, skill, sentiment])
