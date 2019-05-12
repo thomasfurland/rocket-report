@@ -1,7 +1,6 @@
 from databasing.DatabaseConnect import DatabaseConnect
 import random
 
-
 class ReportCard:
     def __init__(self, assessment, database):
         self.level = assessment['level']
@@ -22,28 +21,29 @@ class ReportCard:
     def _positive_template(self, comments):
         report_card = list()
         report_card.append(f"Great work {self.report['student']}!")
-        positive = self._randomize_comment(comments[0], 4)
+        positive = self._randomize_comment(comments['positive'], 4)
         report_card.append(positive)
-        negative = self._randomize_comment(comments[1], 2)
+        negative = self._randomize_comment(comments['negative'], 2)
         report_card.append(negative)
-        neutral = self._randomize_comment(comments[2], 1)
+        neutral = self._randomize_comment(comments['neutral'], 1)
         report_card.append(neutral)
         report_card.append(f"Keep up the excellent effort and good luck in level {int(self.level[-1])+1}")
         return report_card
 
     def _negative_template(self, comments):
         report_card = list()
-        negative = self._randomize_comment(comments[1], 4)
-        report_card.extend(negative)
-        neutral = self._randomize_comment(comments[2], 1)
-        report_card.extend(neutral)
-        positive = self._randomize_comment(comments[0], 2)
+        positive = self._randomize_comment(comments['positive'], 1, omit='swimming')
         report_card.extend(positive)
-        
-        report_card.insert(0, report_card.pop())
+        negative = self._randomize_comment(comments['negative'], 4)
+        report_card.extend(negative)
+        neutral = self._randomize_comment(comments['neutral'], 1)
+        report_card.extend(neutral)
+        positive = self._randomize_comment(comments['positive'], 2, omit=['safety','fitness'])
+        report_card.extend(positive)
+
         i = 0
         while i < len(report_card)-1:
-            if report_card[i][1] == report_card[i+1][1]:
+            if report_card[i][1] == report_card[i+1][1] and report_card[i][3] == report_card[i+1][3]:
                 i+=1
                 report_card.insert(i, "and")
             i += 1
@@ -53,8 +53,12 @@ class ReportCard:
         report_card.append("Keep working hard to improve your swimming")
         return report_card
 
-    def _randomize_comment(self, comments, cycles):
+    def _randomize_comment(self, comments, cycles, omit=None):
         comment = list()
+        if omit:
+            if isinstance(omit, str):
+                omit = [omit] 
+            comments = [com for com in comments if com[0] not in omit]
         for i in range(cycles):
             if comments:
                 random.shuffle(comments)
@@ -63,19 +67,20 @@ class ReportCard:
         return comment
 
     def _comments_by_sentiment(self, comments):
-        pos, neg, neut = list(), list(), list()
+        _dict = dict()
+        _dict['positive'], _dict['negative'], _dict['neutral'] = list(), list(), list()
         for comment in comments:
             for skill in comment:
                 sentiment = skill[3]
                 if sentiment == 'positive':
-                    pos.append(skill)
+                    _dict['positive'].append(skill)
                 elif sentiment == 'negative':
-                    neg.append(skill)
+                    _dict['negative'].append(skill)
                 elif sentiment == 'neutral':
-                    neut.append(skill)
+                    _dict['neutral'].append(skill)
                 else:
                     raise ValueError("you goofed mofo")
-        return [pos]+[neg]+[neut]
+        return _dict
 
     def prescreen(self):
         pass
@@ -156,9 +161,9 @@ if __name__ == '__main__':
                 "vertical_recovery" : '1'
             },
             "back_glide_5sec" : {
-                "glide_5sec_relaxed" : '1', 
-                "streamlined_body_position" : '1',
-                "vertical_recovery" : '1'
+                "glide_5sec_relaxed" : '0', 
+                "streamlined_body_position" : '0',
+                "vertical_recovery" : '0'
             },
             "rollover_glide_5sec_assisted" : {
                 "rolls_front_to_back" : '0', 
