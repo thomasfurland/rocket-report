@@ -24,7 +24,7 @@
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done with your flutterkicks",
+                "comment" : "well done with your flutter kicks",
                 "sentiment" : "positive"
             },
             {
@@ -124,7 +124,7 @@
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done keeping your body straight and flat for distance swim!",
+                "comment" : "well done keeping your body straight and flat for distance swim",
                 "sentiment" : "positive"
             },
             {
@@ -148,7 +148,7 @@
             ],
             "completed_distance" : [
             {
-                "comment" : "keep working on swimming the full distance swim!",
+                "comment" : "keep working on swimming the full distance swim",
                 "sentiment" : "negative"
             },
             {
@@ -231,11 +231,11 @@
             ],
             "performs_safe_entries_exits" : [
             {
-                "comment" : "remember to enter the water safetly at the start, during and end of class",
+                "comment" : "remember to enter the water safely at the start, during and end of class",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work entering and exiting the water safetly",
+                "comment" : "great work entering and exiting the water safely",
                 "sentiment" : "positive"
             },
             {
@@ -249,7 +249,7 @@
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great showing of how to leave the pool safetly",
+                "comment" : "great showing of how to leave the pool safely",
                 "sentiment" : "positive"
             },
             {
@@ -336,7 +336,7 @@
                 "sentiment" : "positive"
             },
             {
-                "comment" : "you can inhale and exhale with a rythm while swimming",
+                "comment" : "you can inhale and exhale with a rhythm while swimming",
                 "sentiment" : "neutral"
             }
             ],
@@ -492,7 +492,7 @@
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great rocketship positioning for front glide with kick",
+                "comment" : "great rocket ship positioning for front glide with kick",
                 "sentiment" : "positive"
             },
             {
@@ -502,11 +502,11 @@
             ],
             "exhale_underwater" : [
             {
-                "comment" : "don't forget to blow bubbles during your rocketship kicks",
+                "comment" : "don't forget to blow bubbles during your rocket ship kicks",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job blowing bubbles during your rocketship kicks",
+                "comment" : "great job blowing bubbles during your rocket ship kicks",
                 "sentiment" : "positive"
             },
             {

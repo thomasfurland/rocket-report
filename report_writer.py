@@ -16,13 +16,13 @@ class ReportCard:
             report_card = self._positive_template(comments)
         else:
             report_card = self._negative_template(comments)
-        return report_card
+        return self.prescreen(report_card)
 
     def _positive_template(self, comments):
         report_card = list()
-        positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
+        positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming', 'fitness'])
         report_card.extend(positive)
-        positive = self._random_comment(comments['positive'], cycles=1, omit=['safety','fitness'])
+        positive = self._random_comment(comments['positive'], cycles=1, omit=['safety','swimming'])
         report_card.extend(positive)
         neutral = self._random_comment(comments['neutral'], 1)
         report_card.extend(neutral)
@@ -30,40 +30,24 @@ class ReportCard:
         report_card.extend(negative)
         positive = self._random_comment(comments['positive'], 3, omit=['safety','fitness'])
         report_card.extend(positive)
-       
-        i = 0
-        while i < len(report_card)-1:
-            if report_card[i][1] == report_card[i+1][1] and report_card[i][3] == report_card[i+1][3]:
-                report_card.insert(i+1, "and")
-                i+=2
-            i+=1
 
         report_card.insert(0, f"Awesome Job {self.report['student']}!")
-        report_card.append(f"Keep up the effort and good luck in level {int(self.level[-1])+1}")
-        report_card = [com[4] if isinstance(com, tuple) else com for com in report_card]
+        report_card.append(f"Keep up the effort and good luck in level {int(self.level[-1])+1}.")
         return report_card
 
     def _negative_template(self, comments):
         report_card = list()
+        negative = self._random_comment(comments['negative'], 4)
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
         report_card.extend(positive)
-        negative = self._random_comment(comments['negative'], 4)
         report_card.extend(negative)
         neutral = self._random_comment(comments['neutral'], 1)
         report_card.extend(neutral)
         positive = self._random_comment(comments['positive'], 2, omit=['safety','fitness'])
         report_card.extend(positive)
-       
-        i = 0
-        while i < len(report_card)-1:
-            if report_card[i][1] == report_card[i+1][1] and report_card[i][3] == report_card[i+1][3]:
-                report_card.insert(i+1, "and")
-                i+=2
-            i+=1
 
         report_card.insert(0, f"Good effort {self.report['student']}!")
-        report_card.append("Keep working hard to improve your swimming")
-        report_card = [com[4] if isinstance(com, tuple) else com for com in report_card]
+        report_card.append("Keep working hard to improve your swimming.")
         return report_card
 
     def _random_comment(self, comments, cycles, omit=None):
@@ -79,34 +63,7 @@ class ReportCard:
                 comment.append(comments.pop())
         comment = self._attribute_sort(self._stroke_sort(comment))
         return comment
-
-    def _stroke_sort(self, comments):
-    	strokes = [stroke[1] for stroke in self.comments]
-    	stroke_directory = sorted(set(strokes), key=strokes.index)
-    	sorted_comments = list()
-    	for stroke in stroke_directory:
-    		i = 0
-    		while i < len(comments):
-    			if stroke == comments[i][1]:
-    				sorted_comments.append(comments.pop(i))
-    			i += 1
-    	return sorted_comments
-
-    def _attribute_sort(self, comments):
-    	changes = True
-    	while changes:
-    		changes = False
-    		for i in reversed(range(1, len(comments))):
-    			if comments[i][1] == comments[i-1][1]:
-    				for attr in range(5, 12):
-    					if comments[i][attr] < comments[i-1][attr]:
-    						break
-    					elif comments[i][attr] > comments[i-1][attr]:
-    						comments[i], comments[i-1] = comments[i-1],comments[i]
-    						changes = True
-    						break
-    	return comments
-
+    
     def _sentiment_sort(self, comments):
         _dict = dict()
         _dict['positive'], _dict['negative'], _dict['neutral'] = list(), list(), list()
@@ -122,8 +79,51 @@ class ReportCard:
                 raise ValueError("you goofed mofo")
         return _dict
 
-    def prescreen(self):
-        pass
+    def _stroke_sort(self, comments):
+        strokes = [stroke[1] for stroke in self.comments]
+        stroke_directory = sorted(set(strokes), key=strokes.index)
+        sorted_comments = list()
+        for stroke in stroke_directory:
+            i = 0
+            while i < len(comments):
+                if stroke == comments[i][1]:
+                    sorted_comments.append(comments[i])
+                i += 1
+        return sorted_comments
+
+    def _attribute_sort(self, comments):
+        changes = True
+        while changes:
+            changes = False
+            for i in reversed(range(1, len(comments))):
+                if comments[i][1] == comments[i-1][1]:
+                    for attr in range(5, 12):
+                        if comments[i][attr] < comments[i-1][attr]:
+                            break
+                        elif comments[i][attr] > comments[i-1][attr]:
+                            comments[i], comments[i-1] = comments[i-1],comments[i]
+                            changes = True
+                            break
+        return comments
+
+    def prescreen(self, comments):
+        i= 0
+        while i < len(comments):
+            if isinstance(comments[i], tuple):
+                comments[i] = list(comments[i])
+                if comments[i-1][-1] in ['!','.']:
+                    comments[i][4] = comments[i][4][0].upper() + comments[i][4][1:]
+                if comments[i][1] == comments[i+1][1] and comments[i][3] == comments[i+1][3]:
+                    comments.insert(i+1, "and")
+                elif comments[i][3] == "positive":
+                    comments.insert(i+1, "!")
+                else:
+                    comments.insert(i+1, ".")
+            i+=1
+        prescreened_comment = [com[4] if isinstance(com, list) else com for com in comments]
+        return prescreened_comment
+        
+        
 
 if __name__ == '__main__':
     assessment = {
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     "instructor": "Thomas",
     "classNumber": "4485362",
     "student": "Demarkus", 
-    "completed": "1",
+    "completed": "0",
     "skills" : {    
         "fitness": {
             "flutter_kick_5m_assisted" : {
