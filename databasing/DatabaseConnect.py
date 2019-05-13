@@ -13,8 +13,9 @@ class DatabaseConnect():
                 for skill, sentiment in skills[standard][stroke].items():
                     if sentiment == '1':
                         neutral = '2'
-                        comments.append(self.fetch_comments(level, standard, stroke, skill, neutral))
-                    comments.append(self.fetch_comments(level, standard, stroke, skill, sentiment))
+                        comments.extend(self.fetch_comments(level, standard, stroke, skill, neutral))
+                    comments.extend(self.fetch_comments(level, standard, stroke, skill, sentiment))
+                # comments.extend(self.fetch_comments(level, standard, stroke, 'Null', sentiment))
         return comments
 
     def fetch_comments(self, level, standard, stroke, skill, sentiment):
@@ -115,6 +116,15 @@ class DatabaseConnect():
 
 if __name__ == '__main__':
     db = DatabaseConnect("test.db")
+
+    with sqlite3.connect('test.db') as conn:
+        c = conn.cursor()
+        c.execute("SELECT skill FROM skills")
+        strokes = c.fetchall()
+    strokes = [stroke[0] for stroke in sorted(set(strokes), key=strokes.index)]
+    print(strokes)
+    exit()
+
 
     comment_list = {
     "entry" : "multi",
