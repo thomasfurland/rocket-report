@@ -20,14 +20,27 @@ class ReportCard:
 
     def _positive_template(self, comments):
         report_card = list()
-        report_card.append(f"Great work {self.report['student']}!")
-        positive = self._random_comment(comments['positive'], cycles=4)
-        report_card.append(positive)
-        negative = self._random_comment(comments['negative'], 2)
-        report_card.append(negative)
+        positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
+        report_card.extend(positive)
+        positive = self._random_comment(comments['positive'], cycles=1, omit=['safety','fitness'])
+        report_card.extend(positive)
         neutral = self._random_comment(comments['neutral'], 1)
-        report_card.append(neutral)
-        report_card.append(f"Keep up the excellent effort and good luck in level {int(self.level[-1])+1}")
+        report_card.extend(neutral)
+        negative = self._random_comment(comments['negative'], 2)
+        report_card.extend(negative)
+        positive = self._random_comment(comments['positive'], 3, omit=['safety','fitness'])
+        report_card.extend(positive)
+       
+        i = 0
+        while i < len(report_card)-1:
+            if report_card[i][1] == report_card[i+1][1] and report_card[i][3] == report_card[i+1][3]:
+                report_card.insert(i+1, "and")
+                i+=2
+            i+=1
+
+        report_card.insert(0, f"Awesome Job {self.report['student']}!")
+        report_card.append(f"Keep up the effort and good luck in level {int(self.level[-1])+1}")
+        report_card = [com[4] if isinstance(com, tuple) else com for com in report_card]
         return report_card
 
     def _negative_template(self, comments):
@@ -119,7 +132,7 @@ if __name__ == '__main__':
     "instructor": "Thomas",
     "classNumber": "4485362",
     "student": "Demarkus", 
-    "completed": "0",
+    "completed": "1",
     "skills" : {    
         "fitness": {
             "flutter_kick_5m_assisted" : {
@@ -193,11 +206,11 @@ if __name__ == '__main__':
                 "vertical_recovery" : '1'
             },
             "rollover_glide_5sec_assisted" : {
-                "rolls_front_to_back" : '0', 
+                "rolls_front_to_back" : '1', 
                 "exhale_underwater_inhale_air" : '1',
-                "rolls_back_to_front" : '0' ,
+                "rolls_back_to_front" : '1' ,
                 "streamlined_body_position" : '1',
-                "starts_roll_head_shoulders" : '0',
+                "starts_roll_head_shoulders" : '1',
                 "vertical_recovery" : '1'
             },
             "front_swim_5m" : {
