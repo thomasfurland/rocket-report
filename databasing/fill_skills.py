@@ -1,4 +1,4 @@
-from DatabaseConnect import DatabaseConnect
+from database_connect import DatabaseConnect
 
 """Attributes
 stamina, focus, confidence, head, body, legs, arms

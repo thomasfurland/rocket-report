@@ -1,5 +1,5 @@
-from DatabaseConnect import DatabaseConnect
 import json
+from database_connect import DatabaseConnect
 """Program Execution
 
 Read a json file (for now) organized in the skill tree format of red cross or in a single comment entry format.
