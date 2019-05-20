@@ -42,17 +42,17 @@ or
     "skill" : null,
     "comment" : "Well done on your distance swim!",
     "sentiment" : "positive"
-]}
+}]
 
 comment: the comment to be displayed.
 sentiment: whether the comment can be seen as positive, negative or neutral.
 
-protect against repeat entries 
+protect against repeat entries
 can handle multiple single entry or same level multi-entry.
 
 """
 def read_comments(file):
-    with open(file) as json_file:  
+    with open(file) as json_file:
         comments = json.load(json_file)
     return comments
 
@@ -69,13 +69,13 @@ def write_to_db(comments, database_connect):
             db.insert_comment(co['level'], co['standard'], co['stroke'], co['skill'], co['comment'], co['sentiment'])
     else:
         raise ValueError("Comment type must be list or dictionary")
-        
+
 if __name__ == '__main__':
     print("Enter comment file for reading...")
-    comment_file = input("File: ")
+    COMMENT_FILE = input("File: ")
     print("\nEnter database for writing...")
-    db_name = input("Database: ")
-    comments = read_comments(comment_file)
-    db = DatabaseConnect(db_name)
-    write_to_db(comments, db)
+    DB_NAME = input("Database: ")
+    COMMENTS = read_comments(COMMENT_FILE)
+    DB = DatabaseConnect(DB_NAME)
+    write_to_db(COMMENTS, DB)
     print("Writing complete!")
