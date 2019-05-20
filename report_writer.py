@@ -47,8 +47,6 @@ class ReportCard:
             report_card = self._positive_template(comments)
         else:
             report_card = self._negative_template(comments)
-        print(report_card)
-        exit()
         return self.prescreen(report_card)
 
     def _positive_template(self, comments):
