@@ -1,8 +1,27 @@
+"""Reads json and creates ReportCard Objects
+
+Takes in a specific json tree-like dictionary structure and creates
+a reportcard object based on its contents.
+
+"""
 import random
 from databasing.database_connect import DatabaseConnect
 
 class ReportCard:
+    """ReportCard object used to create a reportcard comment"""
     def __init__(self, assessment, database):
+        """__init__ method for ReportCard.
+        
+        Takes in a database param to connect to using DatabaseConnect
+        instance and takes in a json object as the assessment.
+        
+        Parameters
+        ----------
+        assessment : dict of dict of dict of dict
+            tree-like structure of swim skills and their evaluation
+        database : DatabaseConnect object
+            used to create connection with sql database
+        """
         self.db = DatabaseConnect(database)
         self.level = assessment['level']
         self.completed = int(assessment['completed'])
@@ -10,15 +29,30 @@ class ReportCard:
         self.comments = None
 
     def build(self):
+        """Builds a reportcard from a template and comments
+
+        creates list of comments (list -> tuple) and sorts the comments
+        by sentiment. Checks level completion and creates appropriate 
+        reportcard template. Returns the reportcard comment after a 
+        prescreen
+
+        Returns
+        -------
+        list of str
+            returns the finalized comment used for a reportcard.
+        """
         self.comments = self.db.multi_fetch_comments(self.report)
         comments = self._sentiment_sort(self.comments)
         if self.completed:
             report_card = self._positive_template(comments)
         else:
             report_card = self._negative_template(comments)
+        print(report_card)
+        exit()
         return self.prescreen(report_card)
 
     def _positive_template(self, comments):
+        """Creates a positively percieved reportcard template"""
         report_card = list()
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming', 'fitness'])
         report_card.extend(positive)
@@ -36,6 +70,7 @@ class ReportCard:
         return report_card
 
     def _negative_template(self, comments):
+        """Creates a negatively percieved reportcard template"""
         report_card = list()
         negative = self._random_comment(comments['negative'], 4)
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
@@ -51,6 +86,7 @@ class ReportCard:
         return report_card
 
     def _random_comment(self, comments, cycles, omit=None):
+        """randomly selects comment tuple from comment list making new list"""
         comment = list()
         if omit:
             if isinstance(omit, str):
@@ -65,6 +101,7 @@ class ReportCard:
         return comment
 
     def _sentiment_sort(self, comments):
+        """Sorts comments by sentiment and returns a new dict by sentient"""
         _dict = dict()
         _dict['positive'], _dict['negative'], _dict['neutral'] = list(), list(), list()
         for skill in comments:
@@ -80,6 +117,7 @@ class ReportCard:
         return _dict
 
     def _stroke_sort(self, comments):
+        """Sorts comments by stroke and returns a new list"""
         strokes = [stroke[1] for stroke in self.comments]
         stroke_directory = sorted(set(strokes), key=strokes.index)
         sorted_comments = list()
@@ -92,6 +130,7 @@ class ReportCard:
         return sorted_comments
 
     def _attribute_sort(self, comments):
+        """Sorts comments by attribute and returns the same list"""
         changes = True
         while changes:
             changes = False
@@ -107,6 +146,22 @@ class ReportCard:
         return comments
 
     def prescreen(self, comments):
+        """Prescreener for reportcard comment.
+
+        Iterates through list of comments extracts comment and adds
+        appropriate capitalization of words and punctuation. Also combines
+        sentences of same strokes.
+
+        Parameters
+        ----------
+        comments : list of tuple
+            a list of comment tuples that are sorted fully.
+
+        Returns
+        -------
+        list of str
+            returns a finalized list of words as the comment to a reportcard.
+        """
         i = 0
         while i < len(comments):
             if isinstance(comments[i], tuple):
