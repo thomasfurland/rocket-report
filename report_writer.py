@@ -130,7 +130,7 @@ if __name__ == '__main__':
         "instructor": "Thomas",
         "classNumber": "4485362",
         "student": "Demarkus",
-        "completed": "0",
+        "completed": "1",
         "skills" : {
             "fitness": {
                 "flutter_kick_5m_assisted" : {
