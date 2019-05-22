@@ -64,15 +64,15 @@ class ReportCard:
         report_card.extend(positive)
 
         report_card.insert(0, f"Awesome Job {self.report['student']}!")
-        report_card.append(f"Keep up the effort and good luck in level {int(self.level[-1])+1}.")
+        report_card.append(f" Keep up the effort and good luck in level {int(self.level[-1])+1}.")
         return report_card
 
     def _negative_template(self, comments):
         """Creates a negatively percieved reportcard template"""
         report_card = list()
-        negative = self._random_comment(comments['negative'], 4)
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
         report_card.extend(positive)
+        negative = self._random_comment(comments['negative'], 4)
         report_card.extend(negative)
         neutral = self._random_comment(comments['neutral'], 1)
         report_card.extend(neutral)
@@ -80,7 +80,7 @@ class ReportCard:
         report_card.extend(positive)
 
         report_card.insert(0, f"Good effort {self.report['student']}!")
-        report_card.append("Keep working hard to improve your swimming.")
+        report_card.append(" Keep working hard to improve your swimming.")
         return report_card
 
     def _random_comment(self, comments, cycles, omit=None):
@@ -165,9 +165,9 @@ class ReportCard:
             if isinstance(comments[i], tuple):
                 comments[i] = list(comments[i])
                 if comments[i-1][-1] in ['!', '.']:
-                    comments[i][4] = comments[i][4][0].upper() + comments[i][4][1:]
+                    comments[i][4] = " " + comments[i][4][0].upper() + comments[i][4][1:]
                 if comments[i][1] == comments[i+1][1] and comments[i][3] == comments[i+1][3]:
-                    comments.insert(i+1, "and")
+                    comments.insert(i+1, " and ")
                 elif comments[i][3] == "positive":
                     comments.insert(i+1, "!")
                 else:
@@ -187,82 +187,82 @@ if __name__ == '__main__':
         "skills" : {
             "fitness": {
                 "flutter_kick_5m_assisted" : {
-                    "horizontal_body_position" : '1',
-                    "front_or_back_kick" : '1',
-                    "kick_from_hip" : '1',
-                    "vertical_leg_motion" : '1',
-                    "completed_distance" : '1'
+                    "horizontal_body_position" : '2',
+                    "front_or_back_kick" : '2',
+                    "kick_from_hip" : '2',
+                    "vertical_leg_motion" : '2',
+                    "completed_distance" : '2'
                 },
                 "distance_swim_5m" : {
-                    "front_or_back_swim" : '1',
-                    "arm_leg_movement" : '1',
-                    "body_position_w_flutter_kick" : '1',
-                    "horizontal_body_position" : '1',
-                    "exhale_underwater" : '1',
-                    "completed_distance" : '1'
+                    "front_or_back_swim" : '2',
+                    "arm_leg_movement" : '2',
+                    "body_position_w_flutter_kick" : '2',
+                    "horizontal_body_position" : '2',
+                    "exhale_underwater" : '2',
+                    "completed_distance" : '2'
                 }
             },
             "safety": {
                 "facility_site_orientation" : {
-                    "identifies_safety_and_hazards" : '1',
-                    "waits_for_instructor" : '1'
+                    "identifies_safety_and_hazards" : '0',
+                    "waits_for_instructor" : '0'
                 },
                 "supervision" : {
-                    "explains_supervision" : '1'
+                    "explains_supervision" : '2'
                 },
                 "shallow_entries_exits" : {
-                    "waits_for_instructor" : '1',
-                    "performs_safe_entries_exits" : '1',
-                    "performs_safe_exits" :'1'
+                    "waits_for_instructor" : '2',
+                    "performs_safe_entries_exits" : '2',
+                    "performs_safe_exits" :'2'
                 },
                 "submerge_head" : {
-                    "head_underwater_3sec" : '1',
-                    "eyes_open_underwater" : '1'
+                    "head_underwater_3sec" : '2',
+                    "eyes_open_underwater" : '2'
                 },
                 "exhale_through_mouth_nose" : {
-                    "exhale_below_surface" : '1',
-                    "exhale_w_head_underwater" : '1'
+                    "exhale_below_surface" : '2',
+                    "exhale_w_head_underwater" : '2'
                 }
             },
             "swimming" : {
                 "rhythmic_breathing_5_times" : {
-                    "exhale_underwater_inhale_air" : '1',
-                    "rhythmic_relaxed" : '1',
-                    "5_repetitions" : '1'
+                    "exhale_underwater_inhale_air" : '2',
+                    "rhythmic_relaxed" : '2',
+                    "5_repetitions" : '2'
                 },
                 "front_float_recovery_3sec" : {
-                    "stable_face_in_water" : '1',
-                    "float_3sec_relaxed" : '1',
-                    "vertical_recovery" : '1'
+                    "stable_face_in_water" : '2',
+                    "float_3sec_relaxed" : '2',
+                    "vertical_recovery" : '2'
                 },
                 "front_glide_5sec" : {
-                    "glide_5sec_relaxed" : '1',
-                    "streamlined_body_position" : '1',
-                    "vertical_recovery" : '1'
+                    "glide_5sec_relaxed" : '2',
+                    "streamlined_body_position" : '2',
+                    "vertical_recovery" : '2'
                 },
                 "front_glide_kick_5m" : {
-                    "vertical_leg_motion" : '1',
-                    "kicks_5m_horizontal_body" : '1',
-                    "streamlined_body_position" : '1',
-                    "exhale_underwater" :'1'
+                    "vertical_leg_motion" : '2',
+                    "kicks_5m_horizontal_body" : '2',
+                    "streamlined_body_position" : '2',
+                    "exhale_underwater" :'2'
                 },
                 "back_float_recovery_3sec" : {
-                    "stable_back_float" : '1',
-                    "float_3sec_relaxed" : '1',
-                    "vertical_recovery" : '1'
+                    "stable_back_float" : '2',
+                    "float_3sec_relaxed" : '2',
+                    "vertical_recovery" : '2'
                 },
                 "back_glide_5sec" : {
-                    "glide_5sec_relaxed" : '1',
-                    "streamlined_body_position" : '1',
-                    "vertical_recovery" : '1'
+                    "glide_5sec_relaxed" : '2',
+                    "streamlined_body_position" : '2',
+                    "vertical_recovery" : '2'
                 },
                 "rollover_glide_5sec_assisted" : {
-                    "rolls_front_to_back" : '1',
-                    "exhale_underwater_inhale_air" : '1',
-                    "rolls_back_to_front" : '1',
-                    "streamlined_body_position" : '1',
-                    "starts_roll_head_shoulders" : '1',
-                    "vertical_recovery" : '1'
+                    "rolls_front_to_back" : '2',
+                    "exhale_underwater_inhale_air" : '2',
+                    "rolls_back_to_front" : '2',
+                    "streamlined_body_position" : '2',
+                    "starts_roll_head_shoulders" : '2',
+                    "vertical_recovery" : '2'
                 },
                 "front_swim_5m" : {
                     "arm_leg_movement" : '0',

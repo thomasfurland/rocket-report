@@ -48,8 +48,9 @@ class DatabaseConnect():
         for standard in skills:
             for stroke in skills[standard]:
                 for skill, sentiment in skills[standard][stroke].items():
-                    if sentiment == '1':
-                        neutral = '2'
+                    sentiment = str(sentiment)
+                    if sentiment == '2':
+                        neutral = '1'
                         comments.extend(self.fetch_comments(level, standard, stroke, skill, neutral))
                     comments.extend(self.fetch_comments(level, standard, stroke, skill, sentiment))
         return comments
@@ -92,11 +93,11 @@ class DatabaseConnect():
             INNER JOIN comments ON directory.comment_id = comments.id 
             WHERE level = ? AND standard = ? AND stroke = ? AND skill = ? AND sentiment = ? 
             """
-        if sentiment == '1':
+        if sentiment == '2':
             sentiment = 'positive'
         elif sentiment == '0':
             sentiment = 'negative'
-        elif sentiment == '2':
+        elif sentiment == '1':
             sentiment = 'neutral'
         with sqlite3.connect(self.db_name) as conn:
             cursor = conn.cursor()
