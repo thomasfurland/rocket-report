@@ -386,16 +386,23 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 }
             }
         }
+        info=dict()
+        info["level"] = evaluation["level"][-1]
+        info["date"] = evaluation["date"]
+        info["instructor"] = evaluation["instructor"]
+        info["classNumber"] = evaluation["classNumber"]
+        info["completed"] = int(evaluation["completed"])
+
         reportcard = ReportCard(evaluation, 'test.db')
         output = "".join(reportcard.build())
-        self.dialog = Support(output)
+        self.dialog = Support(output, info)
         self.dialog.show()
 
 class Support(QtWidgets.QDialog):
-    def __init__(self, text_in):
+    def __init__(self, text_in, information):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
-        self.text_setter(text_in)
+        self.text_setter(text_in, information)
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -549,10 +556,18 @@ class Support(QtWidgets.QDialog):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Barcode: </span></p></body></html>"))
 
-    def text_setter(self, text):
+    def text_setter(self, text, info):
+        self.textEdit_Barcode.setText("Barcode: " + info["classNumber"])
         self.textEditComment.setText(text)
+        self.textEditCurrentLevel.setText("Level: " + info["level"])
+        self.textEditDate.setText("Date: " + info["date"])
+        self.textEditInstructor.setText("Instructor: " + info["instructor"])
+        self.textEditNextLevel.setText("Please register in level: RC " + str(int(info["level"])+1))
+        if info["completed"]:
+            self.checkBoxComplete.setChecked(True)
+        else:
+            self.checkBoxIncomplete.setChecked(True)
 
-        
 if __name__ == '__main__':
     APP = QtWidgets.QApplication(sys.argv)
     WIDGET = Ui_MainWindow()
