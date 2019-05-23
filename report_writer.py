@@ -44,12 +44,87 @@ class ReportCard:
         self.comments = self.db.multi_fetch_comments(self.report)
         comments = self._sentiment_sort(self.comments)
         if self.completed:
-            report_card = self._positive_template(comments)
+            report_card = self.build_template('positive', comments)
         else:
-            report_card = self._negative_template(comments)
-        return self.prescreen(report_card)
+            report_card = self.build_template('negative', comments)
+        return report_card
 
-    def _positive_template(self, comments):
+    def build_template(self, style, comments):
+
+        styles = ["positive", "negative"]
+        if style in styles:
+            selected_comments = eval(f"self._{style}_comments({comments})")
+            return self.build_sentence(selected_comments)
+        else:
+            raise NameError('Enter name of existing template.')
+
+    def build_sentence(self, comments):
+        positive_openers = ["Good work ", "Great work ", "Well done ", "Awesome job ", "Nicely done "]
+        negative_openers = ["Keep trying to ", "Make sure to ", "Remember to ", "Don't forget to ", "Keep practicing how to "]
+        enders = [" on your ", " for your ", " during your "]
+        i = 0
+        while i < len(comments):
+            if isinstance(comments[i], tuple):
+                comments[i] = list(comments[i])
+                if comments[i][3] == 'positive':
+                    random.shuffle(positive_openers)
+                    comments.insert(i, positive_openers[-1])
+                elif comments[i][3] == 'negative':
+                    random.shuffle(negative_openers)
+                    comments.insert(i, negative_openers[-1])
+                else:
+                    comments[i][4] = comments[i][4][0].upper() + comments[i][4][1:]
+                    i-=1
+                i += 1
+                if comments[i][1] == comments[i+1][1] and comments[i][3] == comments[i+1][3]:
+                    if comments[i+2] and comments[i+1][1] == comments[i+2][1] and comments[i+1][3] == comments[i+2][3]:
+                        comments.insert(i+2, "Also ")
+                    comments.insert(i+2, ". ")
+                    comments.insert(i+1, " and ")
+                    if comments[i][0] != "safety":
+                        skill_name = " ".join([ word for word in comments[i][1].split('_')[:2]]) + " "
+                        if comments[i-2] == "Also ":
+                            comments.insert(i-1, f"for {skill_name}")
+                        else:
+                            comments.insert(i-1, f"For {skill_name}")
+                        comments[i] = comments[i].lower()
+                        i+=3
+                    else:
+                        i+=2
+                    comments[i] = list(comments[i])
+                else:
+                    if comments[i][3] == "positive":
+                        comments.insert(i+1, "! ")
+                    else:
+                        comments.insert(i+1, ". ")
+                    if comments[i][0] != "safety" and comments[i][3] != "neutral":
+                        random.shuffle(enders)
+                        skill_name = " ".join([ word for word in comments[i][1].split('_')[:2]]) + " "
+                        comments.insert(i+1, enders[-1] + skill_name[:-1])
+                        i+=1
+            i += 1
+        built_sentence = [com[4] if isinstance(com, list) else com for com in comments]
+        # if roll over hyphenate to roll-over
+        return built_sentence
+
+    """
+    -ve
+    Keep trying to                  kick with straight legs             for your skill
+    Keep working on                 kicking with straight legs          during your skill
+    Make sure to                    kick with straight legs             on your skill    
+    Remember to                     kick with...                        for your..
+    For skill Remember to           kick with..                         and ..
+    
+    +ve
+    Great work                      kicking with ...                    ..
+    Good work                       kicking with ...
+    Awesome job                     kicking with ...
+    Well done                       kicking with ...
+    Nicely done                     kicking with ...
+    Nicely done on your skill
+
+    """
+    def _positive_comments(self, comments):
         """Creates a positively percieved reportcard template"""
         report_card = list()
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming', 'fitness'])
@@ -63,11 +138,13 @@ class ReportCard:
         positive = self._random_comment(comments['positive'], 3, omit=['safety', 'fitness'])
         report_card.extend(positive)
 
-        report_card.insert(0, f"Awesome Job {self.report['student']}!")
+        openers = ["Good job ", "Great job ", "Fantastic work ", "Awesome work ", "Amazing job "]
+        
+        report_card.insert(0, f"{random.choice(openers)}{self.report['student']}! ")
         report_card.append(f" Keep up the effort and good luck in level {int(self.level[-1])+1}.")
         return report_card
 
-    def _negative_template(self, comments):
+    def _negative_comments(self, comments):
         """Creates a negatively percieved reportcard template"""
         report_card = list()
         positive = self._random_comment(comments['positive'], cycles=1, omit=['swimming'])
@@ -79,7 +156,8 @@ class ReportCard:
         positive = self._random_comment(comments['positive'], 2, omit=['safety', 'fitness'])
         report_card.extend(positive)
 
-        report_card.insert(0, f"Good effort {self.report['student']}!")
+        openers = ["Good effort ", "Great effort ", "Good effort this lesson set ", "Great effort this lesson set "]
+        report_card.insert(0, f"{random.choice(openers)}{self.report['student']}! ")
         report_card.append(" Keep working hard to improve your swimming.")
         return report_card
 
@@ -90,7 +168,7 @@ class ReportCard:
             if isinstance(omit, str):
                 omit = [omit]
             comments = [com for com in comments if com[0] not in omit]
-        cycles = cycles + 1 if cycles > 1 else cycles
+        # cycles = cycles + 1 if cycles > 1 else cycles
         for cycle in range(cycles):
             if comments:
                 random.shuffle(comments)
@@ -174,6 +252,7 @@ class ReportCard:
                     comments.insert(i+1, ".")
             i += 1
         prescreened_comment = [com[4] if isinstance(com, list) else com for com in comments]
+        # if roll over hyphenate to roll-over
         return prescreened_comment
 
 if __name__ == '__main__':
@@ -183,7 +262,7 @@ if __name__ == '__main__':
         "instructor": "Thomas",
         "classNumber": "4485362",
         "student": "Demarkus",
-        "completed": "1",
+        "completed": "0",
         "skills" : {
             "fitness": {
                 "flutter_kick_5m_assisted" : {
@@ -271,5 +350,5 @@ if __name__ == '__main__':
             }
         }
     }
-    REPORTCARD = ReportCard(ASSESSMENT, 'test.db')
+    REPORTCARD = ReportCard(ASSESSMENT, 'swimkids.db')
     print(REPORTCARD.build())

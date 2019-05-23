@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('swimkids.db')
 c = conn.cursor()
 
 c.execute('''CREATE TABLE skills

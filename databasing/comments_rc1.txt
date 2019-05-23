@@ -6,11 +6,11 @@
     "flutter_kick_5m_assisted" : {
         "horizontal_body_position" : [
             {
-                "comment" : "try to keep your body flat and straight for flutter kicks",
+                "comment" : "try to keep your body flat and straight",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "good work flutter kicking with a straight and flat body",
+                "comment" : "kicking with a straight and flat body",
                 "sentiment" : "positive"
             },
             {
@@ -20,11 +20,11 @@
             ],
             "front_or_back_kick" : [
             {
-                "comment" : "keep working at kicking on your front and back for flutter kicking 5 meters",
+                "comment" : "kick on your front or back",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done with your flutter kicks",
+                "comment" : "kicking on your front and back",
                 "sentiment" : "positive"
             },
             {
@@ -34,11 +34,11 @@
             ],
             "kick_from_hip" : [
             {
-                "comment" : "remember to kick from your hips during your flutter kick",
+                "comment" : "kick from your hips",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job kicking from your hips during your flutter kick",
+                "comment" : "kicking from your hips",
                 "sentiment" : "positive"
             },
             {
@@ -48,11 +48,11 @@
             ],
             "vertical_leg_motion" : [
             {
-                "comment" : "make sure to kick your legs up and down for flutter kick",
+                "comment" : "kick your legs up and down",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job kicking up and down for flutter kick",
+                "comment" : "kicking your legs up and down",
                 "sentiment" : "positive"
             },
             {
@@ -62,11 +62,11 @@
             ],
             "completed_distance" : [
             {
-                "comment" : "keep working on swimming a full 5 meters for flutter kicks",
+                "comment" : "swim a full 5 meters",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great stuff flutter kicking for 5 meters",
+                "comment" : "kicking for 5 meters",
                 "sentiment" : "positive"
             },
             {
@@ -78,11 +78,11 @@
         "distance_swim_5m" : {
             "front_or_back_swim" : [
             {
-                "comment" : "remember to do a front or back swim for your distance swim",
+                "comment" : "do a front or back swim",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done front and back swimming for distance swim",
+                "comment" : "front swimming and back swimming",
                 "sentiment" : "positive"
             },
             {
@@ -92,11 +92,11 @@
             ],
             "arm_leg_movement" : [
             {
-                "comment" : "remember to keep your arms and legs moving for your distance swim",
+                "comment" : "keep your arms and legs moving",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome work moving your arms and legs during your distance swim",
+                "comment" : "moving your arms and legs",
                 "sentiment" : "positive"
             },
             {
@@ -106,11 +106,11 @@
             ],
             "body_position_w_flutter_kick" : [
             {
-                "comment" : "try keeping your body straight more and legs kicking small and fast during distance swim",
+                "comment" : "keep your body straight and legs kicking small and fast",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great kicking and body position during your distance swim",
+                "comment" : "kicking with good body position",
                 "sentiment" : "positive"
             },
             {
@@ -120,11 +120,11 @@
             ],
             "horizontal_body_position" : [
             {
-                "comment" : "keep your body horizontal for front and back kicks",
+                "comment" : "have your body horizontal with the water",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done keeping your body straight and flat for distance swim",
+                "comment" : "keeping your body straight and flat",
                 "sentiment" : "positive"
             },
             {
@@ -134,11 +134,11 @@
             ],
             "exhale_underwater" : [
             {
-                "comment" : "remember to blow your bubbles and breathe during your distance swim",
+                "comment" : "blow your bubbles and breathe",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome bubbles during distance swim",
+                "comment" : "blowing bubbles and breathing",
                 "sentiment" : "positive"
             },
             {
@@ -148,11 +148,11 @@
             ],
             "completed_distance" : [
             {
-                "comment" : "keep working on swimming the full distance swim",
+                "comment" : "swim the full 5 meter distance",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done on your distance swim",
+                "comment" : "swimming the full 5 meter distance",
                 "sentiment" : "positive"
             },
             {
@@ -171,11 +171,11 @@
     "facility_site_orientation" : {
         "identifies_safety_and_hazards" : [
             {
-                "comment" : "make sure to listen to safety hazard talks to know how to be safe in a pool",
+                "comment" : "listen to safety hazard talks to know how to be safe in a pool",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work listening and identifying safety hazards around the pool",
+                "comment" : "listening and identifying safety hazards around the pool",
                 "sentiment" : "positive"
             },
             {
@@ -185,11 +185,11 @@
             ],
             "waits_for_instructor" : [
             {
-                "comment" : "remember to wait for the instructors permission to get into the water",
+                "comment" : "wait for the instructors permission to get into the water",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done waiting for your instructors permission before getting in the water",
+                "comment" : "waiting for your instructors permission before getting in the water",
                 "sentiment" : "positive"
             },
             {
@@ -201,11 +201,11 @@
         "supervision" : {
             "explains_supervision" : [
             {
-                "comment" : "remember to listen during safety talks to understand things like adult supervision",
+                "comment" : "listen during safety talks to understand things like adult supervision",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work demonstrating safe swimming by staying near the instructor",
+                "comment" : "demonstrating safe swimming by staying near the instructor",
                 "sentiment" : "positive"
             },
             {
@@ -217,11 +217,11 @@
         "shallow_entries_exits" : {
             "waits_for_instructor" : [
             {
-                "comment" : "make sure that you wait for your instructor to get in the water before you",
+                "comment" : "wait for your instructor to get in the water before you",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job waiting for the instructor to get into the water before you get in",
+                "comment" : "waiting for the instructor to get into the water before you get in",
                 "sentiment" : "positive"
             },
             {
@@ -231,11 +231,11 @@
             ],
             "performs_safe_entries_exits" : [
             {
-                "comment" : "remember to enter the water safely at the start, during and end of class",
+                "comment" : "enter the water safely at the start, during and end of class",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work entering and exiting the water safely",
+                "comment" : "entering and exiting the water safely",
                 "sentiment" : "positive"
             },
             {
@@ -245,11 +245,11 @@
             ],
             "performs_safe_exits" : [
             {
-                "comment" : "make sure to exit the pool in a safe way",
+                "comment" : "exit the pool in a safe way",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great showing of how to leave the pool safely",
+                "comment" : "showing how to leave the pool safely",
                 "sentiment" : "positive"
             },
             {
@@ -261,11 +261,11 @@
         "submerge_head" : {
             "head_underwater_3sec" : [
             {
-                "comment" : "have more confidence and put your head underwater for a full 3 seconds",
+                "comment" : "build more confidence to put your head underwater for a full 3 seconds",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work submerging your head for 3 seconds",
+                "comment" : "submerging your head for 3 seconds",
                 "sentiment" : "positive"
             },
             {
@@ -275,11 +275,11 @@
             ],
             "eyes_open_underwater" : [
             {
-                "comment" : "keep trying to open your eyes underwater",
+                "comment" : "open your eyes underwater",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job keeping your eyes open underwater",
+                "comment" : "keeping your eyes open underwater",
                 "sentiment" : "positive"
             },
             {
@@ -291,11 +291,11 @@
         "exhale_through_mouth_nose" : {
             "exhale_below_surface" : [
             {
-                "comment" : "remember to blow bubbles underwater",
+                "comment" : "blow bubbles underwater",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great bubbles underwater",
+                "comment" : "blowing bubbles underwater",
                 "sentiment" : "positive"
             },
             {
@@ -305,11 +305,11 @@
             ],
             "exhale_w_head_underwater" : [
             {
-                "comment" : "keep trying to put your whole head underwater when blowing bubbles too",
+                "comment" : "put your whole head underwater when blowing bubbles too",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome big bubbles from your mouth and nose",
+                "comment" : "blowing big bubbles from your mouth and nose",
                 "sentiment" : "positive"
             },
             {
@@ -328,11 +328,11 @@
     "rhythmic_breathing_5_times" : {
         "exhale_underwater_inhale_air" : [
             {
-                "comment" : "remember to blow bubbles underwater when doing bobs",
+                "comment" : "blow bubbles underwater when doing bobs",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work blowing bubbles and breathing in a pattern",
+                "comment" : "blowing bubbles and breathing in a pattern",
                 "sentiment" : "positive"
             },
             {
@@ -342,11 +342,11 @@
             ],
             "rhythmic_relaxed" : [
             {
-                "comment" : "try to breathe in a pattern and stay relaxed",
+                "comment" : "breathe in a pattern and stay relaxed",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "good job breathing in a pattern and staying relaxed",
+                "comment" : "breathing in a pattern and staying relaxed",
                 "sentiment" : "positive"
             },
             {
@@ -356,11 +356,11 @@
             ],
             "5_repetitions" : [
             {
-                "comment" : "remember to practice doing all 5 of your bobs",
+                "comment" : "practice doing all 5 of your bobs",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work doing all of your bobs",
+                "comment" : "doing all of your bobs",
                 "sentiment" : "positive"
             },
             {
@@ -372,11 +372,11 @@
         "front_float_recovery_3sec" : {
             "stable_face_in_water" : [
             {
-                "comment" : "remember to keep your body stretched with your face in the water for front floats",
+                "comment" : "keep your body stretched with your face in the water",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job stretching your body and having your face in the water for front floats",
+                "comment" : "stretching your body and having your face in the water",
                 "sentiment" : "positive"
             },
             {
@@ -386,11 +386,11 @@
             ],
             "float_3sec_relaxed" : [
             {
-                "comment" : "try to relax more during your front float and hold it for a full 3 seconds",
+                "comment" : "relax more during the full 3 seconds",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome work holding a relaxed front float for 3 seconds",
+                "comment" : "holding a relaxed float for 3 seconds",
                 "sentiment" : "positive"
             },
             {
@@ -400,11 +400,11 @@
             ],
             "vertical_recovery" : [
             {
-                "comment" : "remember to get your feet to the ground and stand up after you finish your front float",
+                "comment" : "get your feet to the ground and stand up",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done standing up by yourself after your front float",
+                "comment" : "standing up by yourself",
                 "sentiment" : "positive"
             },
             {
@@ -416,11 +416,11 @@
         "front_glide_5sec" : {
             "glide_5sec_relaxed" : [
             {
-                "comment" : "keep trying to hold your front glide for a full 5 seconds, it helps to stay relaxed",
+                "comment" : "hold a relaxed glide for 5 seconds",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome front glide for 5 seconds",
+                "comment" : "gliding for 5 seconds",
                 "sentiment" : "positive"
             },
             {
@@ -430,11 +430,11 @@
             ],
             "streamlined_body_position" : [
             {
-                "comment" : "keep your body straight with arms in front of your head for front glide",
+                "comment" : "hold your body straight with arms stretched in front of your head",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome rocket ship position for your front glide",
+                "comment" : "on your rocket ship arms and position",
                 "sentiment" : "positive"
             },
             {
@@ -444,11 +444,11 @@
             ],
             "vertical_recovery" : [
             {
-                "comment" : "make sure to stand up by yourself after your front glide",
+                "comment" : "stand up by yourself after finishing",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job standing up after your front glide",
+                "comment" : "standing up after finishing",
                 "sentiment" : "positive"
             },
             {
@@ -460,11 +460,11 @@
         "front_glide_kick_5m" : {
             "vertical_leg_motion" : [
             {
-                "comment" : "make sure to kick your legs up and down for front glide kicks",
+                "comment" : "kick your legs up and down",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great kicking during your front glide kicks",
+                "comment" : "kicking your legs up and down",
                 "sentiment" : "positive"
             },
             {
@@ -474,11 +474,11 @@
             ],
             "kicks_5m_horizontal_body" : [
             {
-                "comment" : "keep working on trying to kick the full 5 meters for front glide kick",
+                "comment" : "kick the full 5 meters",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome work completing your front glide kicks for 5 meters",
+                "comment" : "completing your 5 meter kick",
                 "sentiment" : "positive"
             },
             {
@@ -488,11 +488,11 @@
             ],
             "streamlined_body_position" : [
             {
-                "comment" : "remember to keep your chin down and body straight for front glide kicks",
+                "comment" : "keep your chin down and body straight",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great rocket ship positioning for front glide with kick",
+                "comment" : "on your rocket ship positioning",
                 "sentiment" : "positive"
             },
             {
@@ -502,11 +502,11 @@
             ],
             "exhale_underwater" : [
             {
-                "comment" : "don't forget to blow bubbles during your rocket ship kicks",
+                "comment" : "blow bubbles",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job blowing bubbles during your rocket ship kicks",
+                "comment" : "blowing bubbles",
                 "sentiment" : "positive"
             },
             {
@@ -518,11 +518,11 @@
         "back_float_recovery_3sec" : {
             "stable_back_float" : [
             {
-                "comment" : "remember to keep your head back and tummy up for your back float",
+                "comment" : "keep your head back and tummy up",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job keeping your tummy up and head back for back float",
+                "comment" : "holding your tummy up and head back",
                 "sentiment" : "positive"
             },
             {
@@ -532,11 +532,11 @@
             ],
             "float_3sec_relaxed" : [
             {
-                "comment" : "make sure to stay relaxed on your back glide so you can float for 3 seconds",
+                "comment" : "stay relaxed so you can float for 3 seconds",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "way to stay relaxed on your back float for 3 seconds",
+                "comment" : "staying relaxed floating for 3 seconds",
                 "sentiment" : "positive"
             },
             {
@@ -546,11 +546,11 @@
             ],
             "vertical_recovery" : [
             {
-                "comment" : "let your legs fall down and lift your head from your back float when you're ready to stand up",
+                "comment" : "let your legs fall down and lift your head up when you're ready to stand up",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job standing back up from your back float",
+                "comment" : "standing back up",
                 "sentiment" : "positive"
             },
             {
@@ -562,11 +562,11 @@
         "back_glide_5sec" : {
             "glide_5sec_relaxed" : [
             {
-                "comment" : "stay relaxed on your back so you can back glide for a full 5 seconds",
+                "comment" : "stay relaxed on your back so you can glide for a full 5 seconds",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job back gliding for a full 5 seconds",
+                "comment" : "gliding for a full 5 seconds",
                 "sentiment" : "positive"
             },
             {
@@ -576,11 +576,11 @@
             ],
             "streamlined_body_position" : [
             {
-                "comment" : "remember to have your arms at your sides with a flat belly for back glide",
+                "comment" : "have your arms at your sides with a flat belly",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job having a flat tummy and keeping your arms at your sides for back glide",
+                "comment" : "having a flat tummy and keeping your arms at your sides",
                 "sentiment" : "positive"
             },
             {
@@ -590,11 +590,11 @@
             ],
             "vertical_recovery" : [
             {
-                "comment" : "remember to stand up on your own from back glide by letting your legs touch the ground",
+                "comment" : "stand up on your own by letting your legs touch the ground",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job standing back up after your back glide",
+                "comment" : "standing back up",
                 "sentiment" : "positive"
             },
             {
@@ -606,11 +606,11 @@
         "rollover_glide_5sec_assisted" : {
             "rolls_front_to_back" : [
             {
-                "comment" : "keep practicing how to roll from your front to back for rollover glide",
+                "comment" : "roll from your front to back",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome rollovers from front to back during rollover glide",
+                "comment" : "rolling over from front to back",
                 "sentiment" : "positive"
             },
             {
@@ -620,11 +620,11 @@
             ],
             "exhale_underwater_inhale_air" : [
             {
-                "comment" : "keep trying to blow bubbles too while doing face down during rollover glides",
+                "comment" : "blow bubbles too while face down",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "well done blowing bubbles while face down during rollover glides",
+                "comment" : "blowing bubbles while face down",
                 "sentiment" : "positive"
             },
             {
@@ -634,11 +634,11 @@
             ],
             "rolls_back_to_front" : [
             {
-                "comment" : "keep on trying to roll from back to front on your rollover glide",
+                "comment" : "roll from back to front",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome work rolling from back to front during rollover glide",
+                "comment" : "rolling from back to front",
                 "sentiment" : "positive"
             },
             {
@@ -648,11 +648,11 @@
             ],
             "streamlined_body_position" : [
             {
-                "comment" : "remember to keep your arms in front of your head during front glide and arms at your side for back glide",
+                "comment" : "keep your arms in front of your head during front glide and arms at your side for back glide",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great job with rocket ship arms for front glide and arms at your side for back glide during rollover glides",
+                "comment" : "with rocket ship arms for front glide and arms at your side for back glide",
                 "sentiment" : "positive"
             },
             {
@@ -662,11 +662,11 @@
             ],
             "starts_roll_head_shoulders" : [
             {
-                "comment" : "remember to start your rollover with your head first, shoulders second and then the rest of your body",
+                "comment" : "start your rollover with your head first, shoulders second and then the rest of your body",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome job rolling over with your head and shoulders first",
+                "comment" : "rolling over with your head and shoulders first",
                 "sentiment" : "positive"
             },
             {
@@ -676,11 +676,11 @@
             ],
             "vertical_recovery" : [
             {
-                "comment" : "keep trying to standup on your own after your finish your rollover glides",
+                "comment" : "stand up on your own",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work being able to stand up after your rollover glides",
+                "comment" : "being able to finish standing up",
                 "sentiment" : "positive"
             },
             {
@@ -692,11 +692,11 @@
         "front_swim_5m" : {
             "arm_leg_movement" : [
             {
-                "comment" : "keep trying to kick your legs up and down and move your arms in big circles to improve your front swim",
+                "comment" : "kick your legs up and down and move your arms in big circles",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "awesome arm circles and up and down kicks for your front swim",
+                "comment" : "with your arm circles and up and down kicks",
                 "sentiment" : "positive"
             },
             {
@@ -706,11 +706,11 @@
             ],
             "completed_distance" : [
             {
-                "comment" : "keep on working at front swimming the full 5 meters",
+                "comment" : "swim the full 5 meters",
                 "sentiment" : "negative"
             },
             {
-                "comment" : "great work front swimming the full 5 meters",
+                "comment" : "swimming the full 5 meters",
                 "sentiment" : "positive"
             },
             {

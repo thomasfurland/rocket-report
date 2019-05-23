@@ -393,7 +393,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         info["classNumber"] = evaluation["classNumber"]
         info["completed"] = int(evaluation["completed"])
 
-        reportcard = ReportCard(evaluation, 'test.db')
+        reportcard = ReportCard(evaluation, 'swimkids.db')
         output = "".join(reportcard.build())
         self.dialog = Support(output, info)
         self.dialog.show()
@@ -402,12 +402,12 @@ class Support(QtWidgets.QDialog):
     def __init__(self, text_in, information):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
-        self.text_setter(text_in, information)
+        self.ugly_text_setter(text_in, information)
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(402*1.65, 557*1.65)
-        Dialog.setMinimumSize(QtCore.QSize(402*1.65, 557*1.65))
+        Dialog.resize(402*1.55, 557*1.55)
+        Dialog.setMinimumSize(QtCore.QSize(402*1.55, 557*1.55))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -423,7 +423,7 @@ class Support(QtWidgets.QDialog):
         Dialog.setSizeGripEnabled(False)
         self.checkBoxComplete = QtWidgets.QCheckBox(Dialog)
         self.checkBoxComplete.setEnabled(True)
-        self.checkBoxComplete.setGeometry(QtCore.QRect(270*1.65, 480*1.65, 91*1.65, 41*1.65))
+        self.checkBoxComplete.setGeometry(QtCore.QRect(270*1.55, 480*1.55, 91*1.55, 41*1.55))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -432,19 +432,19 @@ class Support(QtWidgets.QDialog):
         self.checkBoxComplete.setObjectName("checkBoxComplete")
         self.checkBoxIncomplete = QtWidgets.QCheckBox(Dialog)
         self.checkBoxIncomplete.setEnabled(True)
-        self.checkBoxIncomplete.setGeometry(QtCore.QRect(270*1.65, 510*1.65, 91*1.65, 41*1.65))
+        self.checkBoxIncomplete.setGeometry(QtCore.QRect(270*1.55, 510*1.55, 91*1.55, 41*1.55))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
         self.checkBoxIncomplete.setFont(font)
         self.checkBoxIncomplete.setObjectName("checkBoxIncomplete")
         self.textEditComment = QtWidgets.QTextEdit(Dialog)
-        self.textEditComment.setGeometry(QtCore.QRect(30*1.65, 160*1.65, 341*1.65, 281*1.65))
+        self.textEditComment.setGeometry(QtCore.QRect(30*1.55, 160*1.55, 341*1.55, 281*1.55))
         self.textEditComment.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.textEditComment.setFrameShadow(QtWidgets.QFrame.Plain)
         self.textEditComment.setObjectName("textEditComment")
         self.textEdit_2 = QtWidgets.QTextEdit(Dialog)
-        self.textEdit_2.setGeometry(QtCore.QRect(30*1.65, 20*1.65, 171*1.65, 61*1.65))
+        self.textEdit_2.setGeometry(QtCore.QRect(30*1.55, 20*1.55, 171*1.55, 61*1.55))
         font = QtGui.QFont()
         font.setFamily("Segoe MDL2 Assets")
         font.setPointSize(7)
@@ -453,20 +453,20 @@ class Support(QtWidgets.QDialog):
         self.textEdit_2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.textEdit_2.setObjectName("textEdit_2")
         self.textEdit_3 = QtWidgets.QTextEdit(Dialog)
-        self.textEdit_3.setGeometry(QtCore.QRect(210*1.65, 20*1.65, 161*1.65, 61*1.65))
+        self.textEdit_3.setGeometry(QtCore.QRect(210*1.55, 20*1.55, 161*1.55, 61*1.55))
         self.textEdit_3.setAutoFillBackground(False)
         self.textEdit_3.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.textEdit_3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.textEdit_3.setReadOnly(True)
         self.textEdit_3.setObjectName("textEdit_3")
         self.textEdit_4 = QtWidgets.QTextEdit(Dialog)
-        self.textEdit_4.setGeometry(QtCore.QRect(30*1.65, 130*1.65, 341*1.65, 31*1.65))
+        self.textEdit_4.setGeometry(QtCore.QRect(30*1.55, 130*1.55, 341*1.55, 31*1.55))
         self.textEdit_4.setObjectName("textEdit_4")
         self.textEditDate = QtWidgets.QTextEdit(Dialog)
-        self.textEditDate.setGeometry(QtCore.QRect(210*1.65, 450*1.65, 161*1.65, 31*1.65))
+        self.textEditDate.setGeometry(QtCore.QRect(210*1.55, 450*1.55, 161*1.55, 31*1.55))
         self.textEditDate.setObjectName("textEditDate")
         self.line = QtWidgets.QFrame(Dialog)
-        self.line.setGeometry(QtCore.QRect(10*1.65, 540*1.65, 381*1.65, 16*1.65))
+        self.line.setGeometry(QtCore.QRect(10*1.55, 540*1.55, 381*1.55, 16*1.55))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.line.setFont(font)
@@ -475,34 +475,34 @@ class Support(QtWidgets.QDialog):
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setObjectName("line")
         self.line_2 = QtWidgets.QFrame(Dialog)
-        self.line_2.setGeometry(QtCore.QRect(0*1.65, 7*1.65, 20*1.65, 542*1.65))
+        self.line_2.setGeometry(QtCore.QRect(0*1.55, 7*1.55, 20*1.55, 542*1.55))
         self.line_2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line_2.setLineWidth(2)
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setObjectName("line_2")
         self.line_3 = QtWidgets.QFrame(Dialog)
-        self.line_3.setGeometry(QtCore.QRect(370*1.65, 7*1.65, 41*1.65, 541*1.65))
+        self.line_3.setGeometry(QtCore.QRect(370*1.55, 7*1.55, 41*1.55, 541*1.55))
         self.line_3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line_3.setLineWidth(2)
         self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_3.setObjectName("line_3")
         self.line_4 = QtWidgets.QFrame(Dialog)
-        self.line_4.setGeometry(QtCore.QRect(10*1.65, 0*1.65, 381*1.65, 16*1.65))
+        self.line_4.setGeometry(QtCore.QRect(10*1.55, 0*1.55, 381*1.55, 16*1.55))
         self.line_4.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line_4.setLineWidth(2)
         self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_4.setObjectName("line_4")
         self.textEditNextLevel = QtWidgets.QTextEdit(Dialog)
-        self.textEditNextLevel.setGeometry(QtCore.QRect(30*1.65, 500*1.65, 221*1.65, 31*1.65))
+        self.textEditNextLevel.setGeometry(QtCore.QRect(30*1.55, 500*1.55, 221*1.55, 31*1.55))
         self.textEditNextLevel.setObjectName("textEditNextLevel")
         self.textEditInstructor = QtWidgets.QTextEdit(Dialog)
-        self.textEditInstructor.setGeometry(QtCore.QRect(30*1.65, 450*1.65, 171*1.65, 31*1.65))
+        self.textEditInstructor.setGeometry(QtCore.QRect(30*1.55, 450*1.55, 171*1.55, 31*1.55))
         self.textEditInstructor.setObjectName("textEditInstructor")
         self.textEditCurrentLevel = QtWidgets.QTextEdit(Dialog)
-        self.textEditCurrentLevel.setGeometry(QtCore.QRect(30*1.65, 90*1.65, 171*1.65, 31*1.65))
+        self.textEditCurrentLevel.setGeometry(QtCore.QRect(30*1.55, 90*1.55, 171*1.55, 31*1.55))
         self.textEditCurrentLevel.setObjectName("textEditCurrentLevel")
         self.textEdit_Barcode = QtWidgets.QTextEdit(Dialog)
-        self.textEdit_Barcode.setGeometry(QtCore.QRect(210*1.65, 90*1.65, 161*1.65, 31*1.65))
+        self.textEdit_Barcode.setGeometry(QtCore.QRect(210*1.55, 90*1.55, 161*1.55, 31*1.55))
         self.textEdit_Barcode.setObjectName("textEdit_Barcode")
 
         self.retranslateUi(Dialog)
@@ -540,27 +540,28 @@ class Support(QtWidgets.QDialog):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Date:</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Date: </span>dummydate</p></body></html>"))
         self.textEditNextLevel.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Please register in level: </span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Please register in level: </span>dummytext</p></body></html>"))
         self.textEditInstructor.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Instructor: </span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Instructor: </span>dummytext</p></body></html>"))
         self.textEditCurrentLevel.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Level: </span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Level: </span>dummytext</p></body></html>"))
         self.textEdit_Barcode.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Barcode: </span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Barcode: </span>dummytext</p></body></html>"))
+
     
     def text_setter(self, text, info):
         self.textEdit_Barcode.setText("Barcode: " + info["classNumber"])
@@ -580,6 +581,47 @@ f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0
         else:
             self.checkBoxIncomplete.setChecked(True)
             self.textEditNextLevel.setText("Please register in level: RC " + info["level"])
+
+
+    def ugly_text_setter(self, text, info):
+        if info["completed"]:
+            self.checkBoxComplete.setChecked(True)
+            next_level = str(int(info["level"])+1)
+        else:
+            self.checkBoxIncomplete.setChecked(True)
+            next_level = info["level"]
+        _translate = QtCore.QCoreApplication.translate
+        self.textEditComment.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; font-weight:300; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\">{text}</p></body></html>"))
+        self.textEditDate.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Date: </span>{info['date']}</p></body></html>"))
+        self.textEditNextLevel.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Please register in level: </span>{next_level}</p></body></html>"))
+        self.textEditInstructor.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Instructor: </span>{info['instructor']}</p></body></html>"))
+        self.textEditCurrentLevel.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Level: </span>{info['level']}</p></body></html>"))
+        self.textEdit_Barcode.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+f"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:600;\">Barcode: </span>{info['classNumber']}</p></body></html>"))
+
 
 if __name__ == '__main__':
     APP = QtWidgets.QApplication(sys.argv)
